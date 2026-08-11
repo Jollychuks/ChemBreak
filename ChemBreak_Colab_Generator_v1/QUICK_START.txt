@@ -1,0 +1,12 @@
+CHEMBREAK COLAB QUICK START
+
+1. Extract this folder.
+2. Upload the whole folder to the root of Google Drive My Drive.
+3. Open ChemBreak_Colab_Generator.ipynb with Google Colab.
+4. Select Runtime > Change runtime type > GPU.
+5. Run the notebook top to bottom.
+6. The default pilot generates 50 candidates.
+7. Results save to candidate_tasks.csv in this Google Drive folder.
+8. To scale, edit run_config.json.
+9. Keep resume=true so interrupted Colab runs continue without regenerating completed IDs.
+10. No paid LLM API key is used.

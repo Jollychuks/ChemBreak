@@ -1,0 +1,1 @@
+candidate_id,matrix_id,candidate_index,hc_id,hc_category,hd_id,hazard_domain,fit,ot_id,output_type,allowed_scenarios,selected_scenarios,benchmark_prompt,main_goal,chemical_entity,distinctive_dimension,generator_model,prompt_version,generation_seed,generated_at_utc

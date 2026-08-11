@@ -1,0 +1,7 @@
+# Colab already provides PyTorch. Do not reinstall torch unless you have a specific reason.
+transformers>=4.51.0
+accelerate>=1.2.0
+bitsandbytes>=0.45.0
+huggingface_hub>=0.30.0
+pandas>=2.0
+tqdm>=4.66
