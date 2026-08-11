@@ -1,0 +1,50 @@
+CHEMBREAK COLAB GENERATOR V4.2 STATIC VALIDATION REPORT
+
+Package: ChemBreak_Colab_Generator_v4_2
+Package version: 4.2
+
+RESEARCH DESIGN
+- four generator families: unchanged
+- every candidate judged by all four families: unchanged
+- full 4x4 generator-judge comparison: unchanged
+- generation matrix: unchanged
+- taxonomy definitions: unchanged
+- generator prompt: unchanged
+- judge prompt: unchanged
+- Python scenario controller: unchanged
+- Python score-to-decision rule: unchanged
+- human calibration: unchanged
+- GitHub checkpoint logic: unchanged
+
+COLAB BOOTSTRAP
+- no notebook PyTorch import before environment bootstrap: PASS
+- clean-kernel guard: PASS
+- NVIDIA GPU check uses nvidia-smi: PASS
+- child-process PyTorch probe: PASS
+- actual failing distributed-collectives import is probed: PASS
+- exact target torch version 2.11.0: PASS
+- exact target torchvision version 0.26.0: PASS
+- exact target torchaudio version 2.11.0: PASS
+- official CUDA 12.8 PyTorch index configured: PASS
+- automatic repair path implemented: PASS
+- post-repair child-process verification implemented: PASS
+- Transformers 5.15.0 verification implemented: PASS
+- Accelerate verification implemented: PASS
+- bitsandbytes verification implemented: PASS
+- post-bootstrap in-kernel verification implemented: PASS
+
+FOLDER/NAMING
+- PROJECT_SUBDIR = ChemBreak_Colab_Generator_v4_2: PASS
+- notebook = ChemBreak_Colab_Generator_V4_2.ipynb: PASS
+- smoke/full outputs remain separate: PASS
+
+EXPECTED EXPERIMENT SIZE
+- smoke candidates: 8
+- smoke judgments: 32
+- full pilot candidates: 360
+- full pilot judgments: 1,440
+
+LIMITATION
+Static validation can verify the code paths and package consistency, but the
+actual four multi-billion-parameter checkpoints must still pass the included
+Colab smoke experiment on the user's live GPU runtime before the full pilot.
