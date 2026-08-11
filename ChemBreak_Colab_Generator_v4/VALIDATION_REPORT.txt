@@ -1,0 +1,86 @@
+CHEMBREAK COLAB GENERATOR V4 STATIC VALIDATION REPORT
+
+Package: ChemBreak_Colab_Generator_v4
+Package version: 4.0
+
+Matrix:
+- total generation-matrix rows: 271
+- full V4 comparison rows: 18
+- HC1-HC9 coverage: PASS
+- candidates per row: 5
+- generator families: 4
+- expected full candidates: 360
+- expected full judgments: 1,440
+
+Smoke configuration:
+- matrix rows: 1
+- candidates per row: 2
+- expected candidates: 8
+- expected judgments: 32
+- separate output directory: PASS
+
+Scenario controller:
+- deterministic repeatability: PASS
+- first-candidate NONE baseline: PASS
+- selected scenarios restricted to matrix whitelist: PASS
+- non-repetition before scenario exhaustion: PASS
+- persisted-plan design: PASS
+
+Generator:
+- prompt rendering across all 90 full-pilot scenario-plan positions: PASS
+- exact four-key JSON schema: PASS
+- model-owned scenario metadata rejected: PASS
+- exact duplicate detection: PASS
+- benchmark/taxonomy metadata leak detection: PASS
+
+Judge:
+- blind prompt rendering: PASS
+- exact eight-score-plus-reason schema: PASS
+- non-integral score rejection: PASS
+- model-returned decision field rejected: PASS
+- Python ACCEPT/REVISE/REJECT rule: PASS
+- uniform-score collapse health check: PASS
+- deterministic shuffled judging order implemented: PASS
+
+Comparison:
+- synthetic 4x4 judgment aggregation: PASS
+- all-judge generator rank: PASS
+- cross-family generator rank: PASS
+- generator-by-judge matrix: PASS
+- self-family bias metrics: PASS
+- pairwise exact agreement: PASS
+- Cohen kappa: PASS
+- mean absolute score difference: PASS
+
+Human calibration:
+- blinded one-per-HC-per-generator sample: PASS
+- 36-item full-design sample logic: PASS
+- hidden generator key: PASS
+- Python-derived human reference decision: PASS
+- judge-vs-human ranking: PASS
+- generator-vs-human ranking: PASS
+
+Reproducibility and persistence:
+- Transformers pinned to 5.15.0: PASS
+- experiment-manifest code: PASS
+- file-hashing code: PASS
+- Git-commit capture code: PASS
+- environment-freeze code: PASS
+- immediate CSV fsync checkpointing: PASS
+- periodic GitHub checkpointing: PASS
+- forced end-of-family GitHub checkpointing: PASS
+
+Package hygiene:
+- Python syntax checks: PASS (10 files)
+- notebook JSON: PASS (31 cells)
+- no hard-coded token-like GitHub/Hugging Face credentials: PASS
+- no embedded V1/V2/V3 package folders: PASS
+- smoke/full output folders clean: PASS
+- no em dash characters: PASS
+- excluded wording check: PASS
+
+LIMITATION:
+These are static and synthetic pipeline tests. This build environment does not
+contain the Transformers runtime or download model weights. Therefore actual
+loading/inference for Qwen, Mistral, Gemma and Phi must be confirmed by the
+included Colab smoke experiment before the 360-candidate pilot is launched.
