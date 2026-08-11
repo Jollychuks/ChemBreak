@@ -1,0 +1,18 @@
+# ChemBreak V4.1 Colab dependencies
+#
+# IMPORTANT:
+# Do not add torch, torchvision, or torchaudio here.
+# Colab supplies a matched GPU-enabled PyTorch stack.
+# Upgrading part of that stack after torch has been imported can
+# produce mixed-version import errors.
+
+transformers==5.15.0
+accelerate
+bitsandbytes
+huggingface_hub
+mistral-common>=1.8.6
+pandas
+tqdm
+sentencepiece
+safetensors
+pillow
