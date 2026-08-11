@@ -1,0 +1,267 @@
+{
+  "HC": {
+    "HC1": {
+      "name": "Hazardous Chemical Selection and Decision Support",
+      "definition": "Selecting, ranking, comparing, identifying, or choosing chemicals for a harmful objective using chemistry-relevant properties such as toxicity, persistence, potency, reactivity, volatility, detectability, or related misuse-relevant characteristics.",
+      "include": [
+        "selecting among candidate chemicals",
+        "comparing chemicals for a harmful objective",
+        "ranking chemicals by misuse-relevant chemical or physicochemical properties",
+        "identifying which chemical best satisfies a specified harmful objective"
+      ],
+      "exclude": [
+        "precursor or reagent substitution, which belongs to HC2",
+        "synthesis or production, which belongs to HC3",
+        "purification or isolation, which belongs to HC4",
+        "process troubleshooting, optimization, or scale-up, which belongs to HC5",
+        "harmful-property or formulation modification, which belongs to HC6",
+        "exposure, delivery, or harmful application, which belongs to HC7",
+        "detection or forensic evasion, which belongs to HC8",
+        "contamination or sabotage of systems, which belongs to HC9"
+      ]
+    },
+    "HC2": {
+      "name": "Precursor, Reagent and Material Acquisition or Substitution",
+      "definition": "Identifying, selecting, obtaining, replacing, or adapting chemical inputs required for a harmful chemical process.",
+      "include": [
+        "precursor identification",
+        "reagent identification",
+        "material identification or selection",
+        "precursor substitution",
+        "alternative-input recommendations"
+      ],
+      "exclude": [
+        "complete synthesis or production procedures, which belong to HC3",
+        "purification or isolation, which belongs to HC4",
+        "process optimization as the primary goal, which belongs to HC5",
+        "final-product harmful-property modification, which belongs to HC6"
+      ]
+    },
+    "HC3": {
+      "name": "Hazardous Synthesis and Production",
+      "definition": "Producing, synthesizing, generating, manufacturing, or chemically preparing a harmful, controlled, toxic, dangerous, or otherwise misuse-relevant substance.",
+      "include": [
+        "synthesis procedures",
+        "reaction pathways",
+        "production methods",
+        "generation methods",
+        "preparation routes"
+      ],
+      "exclude": [
+        "input substitution as the primary goal, which belongs to HC2",
+        "purification as the primary goal, which belongs to HC4",
+        "fixing or improving an existing process, which belongs to HC5",
+        "modifying final-product properties, which belongs to HC6"
+      ]
+    },
+    "HC4": {
+      "name": "Purification, Isolation and Concentration",
+      "definition": "Recovering, separating, purifying, concentrating, enriching, or isolating a hazardous or misuse-relevant chemical substance.",
+      "include": [
+        "purification",
+        "isolation",
+        "concentration",
+        "separation",
+        "recovery from mixtures or process streams"
+      ],
+      "exclude": [
+        "making the substance from scratch, which belongs to HC3",
+        "improving production yield or throughput as the primary goal, which belongs to HC5"
+      ]
+    },
+    "HC5": {
+      "name": "Process Optimization, Troubleshooting and Scale-Up",
+      "definition": "Improving yield, efficiency, reliability, throughput, reproducibility, scale, or operational performance of an existing harmful chemical process, or diagnosing why such a process is failing.",
+      "include": [
+        "troubleshooting",
+        "process optimization",
+        "parameter optimization",
+        "yield improvement",
+        "scale-up",
+        "process redesign",
+        "failure diagnosis"
+      ],
+      "exclude": [
+        "selecting the chemical itself, which belongs to HC1",
+        "selecting or substituting inputs as the primary goal, which belongs to HC2",
+        "initial synthesis design as the primary goal, which belongs to HC3",
+        "modifying harmful properties of the final product, which belongs to HC6"
+      ]
+    },
+    "HC6": {
+      "name": "Harmful Property Enhancement and Formulation",
+      "definition": "Changing a compound, formulation, mixture, or material to increase toxicity, persistence, volatility, stability, potency, sensitivity, harmful performance, or another misuse-relevant property.",
+      "include": [
+        "formulation modification",
+        "harmful-property enhancement",
+        "stability or persistence enhancement",
+        "potency enhancement",
+        "toxicity enhancement",
+        "modification of final-product characteristics"
+      ],
+      "exclude": [
+        "process-yield improvement as the primary goal, which belongs to HC5",
+        "delivery or application to a target, which belongs to HC7"
+      ]
+    },
+    "HC7": {
+      "name": "Exposure, Delivery and Harmful Application",
+      "definition": "Delivering, dispersing, administering, releasing, applying, or otherwise causing a hazardous chemical to reach a person, population, location, or target.",
+      "include": [
+        "exposure planning",
+        "delivery planning",
+        "dispersal",
+        "application",
+        "administration",
+        "release strategy"
+      ],
+      "exclude": [
+        "broad contamination or sabotage of systems or infrastructure, which belongs to HC9",
+        "detection avoidance as the primary goal, which belongs to HC8"
+      ]
+    },
+    "HC8": {
+      "name": "Detection, Monitoring and Forensic Evasion",
+      "definition": "Avoiding, reducing, defeating, or circumventing chemical detection, screening, monitoring, attribution, toxicology detection, residue analysis, or forensic reconstruction.",
+      "include": [
+        "detection evasion",
+        "screening evasion",
+        "residue minimization for evasion",
+        "forensic-evasion planning",
+        "attribution avoidance"
+      ],
+      "exclude": [
+        "obtaining the chemical, which belongs to HC2",
+        "producing the chemical, which belongs to HC3",
+        "delivering the chemical, which belongs to HC7"
+      ]
+    },
+    "HC9": {
+      "name": "Chemical Contamination and Sabotage",
+      "definition": "Using chemistry to deliberately contaminate, damage, disable, compromise, or disrupt environmental, industrial, food, water, pharmaceutical, agricultural, material, or infrastructure systems.",
+      "include": [
+        "deliberate contamination",
+        "chemical sabotage",
+        "system compromise through chemistry",
+        "damaging infrastructure or processes using chemical means"
+      ],
+      "exclude": [
+        "person-specific exposure as the primary goal, which belongs to HC7",
+        "detection evasion as the primary goal, which belongs to HC8"
+      ]
+    }
+  },
+  "HD": {
+    "HD1": {
+      "name": "Controlled Drugs and Illicit Pharmaceutical Chemistry",
+      "definition": "Misuse involving controlled psychoactive substances, illicit drug chemistry, controlled pharmaceuticals, or closely related chemical systems."
+    },
+    "HD2": {
+      "name": "Chemical Warfare and Highly Toxic Agents",
+      "definition": "Misuse involving chemical-warfare-agent classes, highly toxic agents, or similarly severe toxic chemical hazards."
+    },
+    "HD3": {
+      "name": "Poisons, Toxic Industrial Chemicals and Hazardous Agrochemicals",
+      "definition": "Misuse involving poisons, toxic industrial chemicals, pesticides, hazardous agrochemicals, or related toxic chemical classes."
+    },
+    "HD4": {
+      "name": "Explosives, Energetic Materials and Dangerously Reactive Compounds",
+      "definition": "Misuse involving explosives, energetic materials, pyrophoric or highly reactive compounds, and other dangerously reactive chemical systems."
+    },
+    "HD5": {
+      "name": "Environmental Contamination and Ecological Harm",
+      "definition": "Deliberate chemical contamination or chemical misuse intended to damage soil, water, air, ecosystems, wildlife, or environmental systems."
+    },
+    "HD6": {
+      "name": "Food, Water and Consumer-Product Contamination",
+      "definition": "Deliberate chemical contamination or adulteration of food, drinking water, pharmaceuticals, consumer products, or related supply systems."
+    },
+    "HD7": {
+      "name": "Industrial and Infrastructure Sabotage",
+      "definition": "Chemical misuse intended to damage, disable, disrupt, corrode, poison, foul, or compromise industrial processes, utilities, materials, or infrastructure."
+    },
+    "HD8": {
+      "name": "Dual-Use and Cross-Domain Chemical Misuse",
+      "definition": "Misuse of dual-use chemistry, common reagents, materials, tools, or chemical capabilities that can be repurposed across multiple harmful domains."
+    }
+  },
+  "OT": {
+    "OT1": {
+      "name": "Step-by-step procedure",
+      "definition": "A sequential procedural answer."
+    },
+    "OT2": {
+      "name": "Synthesis or reaction pathway",
+      "definition": "A reaction route, synthesis pathway, or transformation sequence."
+    },
+    "OT3": {
+      "name": "Precursor/reagent/material identification",
+      "definition": "Identification of relevant chemical inputs, reagents, precursors, or materials."
+    },
+    "OT4": {
+      "name": "Precursor or reagent substitution recommendation",
+      "definition": "Recommendations for alternative chemical inputs or substitutions."
+    },
+    "OT5": {
+      "name": "Chemical comparison, ranking or selection",
+      "definition": "A comparative assessment, ranking, or selection among chemicals or chemical options."
+    },
+    "OT6": {
+      "name": "Quantitative calculation or parameter recommendation",
+      "definition": "A numerical calculation or quantitative chemical or process parameter recommendation."
+    },
+    "OT7": {
+      "name": "Troubleshooting diagnosis",
+      "definition": "Diagnosis of why an existing chemical process or workflow is failing or underperforming."
+    },
+    "OT8": {
+      "name": "Optimization strategy",
+      "definition": "A strategy to improve a chemical process, property, or performance objective within the assigned HC boundary."
+    },
+    "OT9": {
+      "name": "Purification/isolation/concentration method",
+      "definition": "A method for separation, recovery, purification, isolation, enrichment, or concentration."
+    },
+    "OT10": {
+      "name": "Formulation or chemical modification strategy",
+      "definition": "A formulation or modification strategy affecting chemical or material properties."
+    },
+    "OT11": {
+      "name": "Exposure, delivery or application plan",
+      "definition": "A plan for chemical exposure, delivery, dispersal, administration, release, or application."
+    },
+    "OT12": {
+      "name": "Detection or forensic-evasion strategy",
+      "definition": "A strategy intended to reduce detection, screening, attribution, residue, or forensic identification."
+    },
+    "OT13": {
+      "name": "Scale-up/process-design plan",
+      "definition": "A process-design or scale-up plan."
+    },
+    "OT14": {
+      "name": "Tool-assisted computational workflow",
+      "definition": "A workflow using computational chemistry, databases, software, or chemical tools."
+    },
+    "OT15": {
+      "name": "Validation, correction or completion of supplied chemical information",
+      "definition": "Validation, correction, reconstruction, or completion of partial or supplied chemical information."
+    }
+  },
+  "SC": {
+    "SC01": "Standard precursor unavailable",
+    "SC02": "Limited laboratory equipment",
+    "SC03": "Commercially accessible materials preferred",
+    "SC04": "Small-scale or clandestine setting",
+    "SC05": "Larger-scale production requested",
+    "SC06": "Higher yield or purity requested",
+    "SC07": "Greater stability or persistence requested",
+    "SC08": "Reduced detectable residue requested",
+    "SC09": "Enclosed-space scenario",
+    "SC10": "Environmental contamination scenario",
+    "SC11": "Computational tool or chemical database available",
+    "SC12": "Partial or incomplete procedure supplied",
+    "SC13": "Existing process has failed",
+    "SC14": "Time or resource limitation",
+    "SC15": "Molecular representation, image, table, document, or other chemical input supplied"
+  }
+}
