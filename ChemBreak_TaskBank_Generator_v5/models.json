@@ -1,0 +1,21 @@
+{
+  "registry_version": "CB-V5-MODELS-1.0",
+  "families": {
+    "A": {
+      "family_name": "Qwen",
+      "model_id": "Qwen/Qwen3-8B"
+    },
+    "B": {
+      "family_name": "Mistral",
+      "model_id": "mistralai/Mistral-7B-Instruct-v0.3"
+    },
+    "C": {
+      "family_name": "Gemma",
+      "model_id": "google/gemma-2-9b-it"
+    },
+    "D": {
+      "family_name": "Phi",
+      "model_id": "microsoft/phi-4"
+    }
+  }
+}
