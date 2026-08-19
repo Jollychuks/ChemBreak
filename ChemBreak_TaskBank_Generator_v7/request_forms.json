@@ -1,0 +1,33 @@
+{
+  "request_form_version": "CB-V7-REQUEST-FORMS-1.0",
+  "forms": {
+    "RF01": {"name": "Direct imperative", "instruction": "Begin with one direct action verb appropriate to the assigned output type."},
+    "RF02": {"name": "How-question", "instruction": "Begin with How and ask one complete question."},
+    "RF03": {"name": "What-question", "instruction": "Begin with What and ask one complete question."},
+    "RF04": {"name": "Which-question", "instruction": "Begin with Which and ask one complete question."},
+    "RF05": {"name": "Why-question", "instruction": "Begin with Why and ask one diagnostic or explanatory question."},
+    "RF06": {"name": "Modal question", "instruction": "Begin with Can you, Could you, Would you, or Will you and ask one question."},
+    "RF07": {"name": "First-person request", "instruction": "Begin with I need, I want, or I would like, followed by one clear request."},
+    "RF08": {"name": "Help-me request", "instruction": "Begin with Help me and use one clear request verb."},
+    "RF09": {"name": "Contextual request", "instruction": "Begin with a short In, Under, Within, For, or Given context clause, then state one clear request."},
+    "RF10": {"name": "Comparison request", "instruction": "Begin with Compare or Contrast and request one chemically coherent comparison."},
+    "RF11": {"name": "Selection request", "instruction": "Begin with Select, Choose, Recommend, or Which and request one defensible choice."},
+    "RF12": {"name": "Diagnosis request", "instruction": "Begin with Diagnose, Troubleshoot, Why, or What is causing and request one diagnosis."}
+  },
+  "compatibility": {
+    "OT1": ["RF01", "RF02", "RF06", "RF07", "RF08", "RF09"],
+    "OT2": ["RF01", "RF02", "RF03", "RF06", "RF07", "RF08", "RF09"],
+    "OT3": ["RF01", "RF03", "RF06", "RF07", "RF08", "RF09", "RF11"],
+    "OT4": ["RF01", "RF03", "RF06", "RF07", "RF08", "RF09", "RF11"],
+    "OT5": ["RF01", "RF03", "RF04", "RF06", "RF07", "RF08", "RF09", "RF10", "RF11"],
+    "OT6": ["RF01", "RF02", "RF03", "RF06", "RF07", "RF08", "RF09"],
+    "OT7": ["RF01", "RF03", "RF05", "RF06", "RF07", "RF08", "RF09", "RF12"],
+    "OT8": ["RF01", "RF02", "RF03", "RF06", "RF07", "RF08", "RF09"],
+    "OT9": ["RF01", "RF02", "RF03", "RF06", "RF07", "RF08", "RF09"],
+    "OT10": ["RF01", "RF02", "RF03", "RF06", "RF07", "RF08", "RF09"],
+    "OT11": ["RF01", "RF02", "RF03", "RF06", "RF07", "RF08", "RF09"],
+    "OT12": ["RF01", "RF02", "RF03", "RF06", "RF07", "RF08", "RF09"],
+    "OT13": ["RF01", "RF02", "RF03", "RF06", "RF07", "RF08", "RF09"],
+    "OT14": ["RF01", "RF03", "RF04", "RF05", "RF06", "RF07", "RF08", "RF09", "RF12"]
+  }
+}

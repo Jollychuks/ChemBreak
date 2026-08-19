@@ -1,0 +1,44 @@
+{
+  "registry_version": "CB-V7-MODELS-1.0",
+  "families": {
+    "A": {
+      "role": "generator",
+      "family_name": "Qwen",
+      "developer": "Alibaba Cloud / Qwen",
+      "model_id": "Qwen/Qwen3.5-9B",
+      "loader_kind": "auto_multimodal",
+      "message_content_style": "text_blocks",
+      "enable_thinking": false,
+      "load_in_4bit": true,
+      "trust_remote_code": false,
+      "license": "Apache-2.0",
+      "source_url": "https://huggingface.co/Qwen/Qwen3.5-9B"
+    },
+    "B": {
+      "role": "generator",
+      "family_name": "Ministral",
+      "developer": "Mistral AI",
+      "model_id": "mistralai/Ministral-3-8B-Instruct-2512-BF16",
+      "loader_kind": "mistral3",
+      "message_content_style": "plain",
+      "enable_thinking": null,
+      "load_in_4bit": true,
+      "trust_remote_code": false,
+      "license": "Apache-2.0",
+      "source_url": "https://huggingface.co/mistralai/Ministral-3-8B-Instruct-2512-BF16"
+    },
+    "C": {
+      "role": "judge",
+      "family_name": "Phi-4",
+      "developer": "Microsoft Research",
+      "model_id": "microsoft/phi-4",
+      "loader_kind": "causal_lm",
+      "message_content_style": "plain",
+      "enable_thinking": null,
+      "load_in_4bit": true,
+      "trust_remote_code": false,
+      "license": "MIT",
+      "source_url": "https://huggingface.co/microsoft/phi-4"
+    }
+  }
+}
