@@ -1,0 +1,43 @@
+digraph V11 {
+  graph [rankdir=TB, bgcolor="white", pad="0.3", nodesep="0.45", ranksep="0.55", fontname="Arial", labelloc="t", label="ChemBreak V11 Task-Bank Pipeline", fontsize=24];
+  node [shape=box, style="rounded,filled", fontname="Arial", fontsize=11, color="#2f5597", fillcolor="#eef4ff", margin="0.16,0.10"];
+  edge [fontname="Arial", fontsize=10, color="#555555", arrowsize=0.8];
+
+  plan [label="1. TAXONOMY + MATRIX PLAN\nHC1-HC9 | HD1-HD8 | OT1-OT15 | SC01-SC15\nFresh CBV11C assignment namespace"];
+  gen [label="2. GEMINI 3.1 PRO GENERATION\n3 controlled candidates per assignment\nA, B, C use distinct language profiles", fillcolor="#eaf1ff"];
+  val [label="3. DETERMINISTIC PYTHON VALIDATION\nLength, entity, taxonomy leakage, scenario, output type,\nanswer leakage, duplication, structure, diversity", fillcolor="#eaf8ee", color="#2d7d46"];
+  repair [label="4. GEMINI 3.1 PRO REPAIR\nExact validator defects\nMax 2 attempts", fillcolor="#eaf8ee", color="#2d7d46"];
+  count [shape=diamond, label="How many valid\ncandidates remain?", fillcolor="#fff7df", color="#c28a00"];
+  pj [label="TARGETED PRE-JUDGE REFILL\nIf only 1 survives, generate one extra candidate\nUp to 2 attempts", fillcolor="#fff0f0", color="#c93c3c"];
+  judge [label="5. TWO INDEPENDENT JUDGES, CONCURRENT\nJudge A: gpt-oss-120B\nJudge B: Gemini 2.5 Pro\nBoth evaluate every active candidate", fillcolor="#f2edff", color="#6941c6"];
+  compare [shape=diamond, label="Compare judge\ndecisions", fillcolor="#fff7df", color="#c28a00"];
+  accept [label="ACCEPT WINNER", fillcolor="#eaf8ee", color="#2d7d46"];
+  adjud [label="6. GEMINI 3.1 PRO BLIND ADJUDICATION\nOnly for genuine disagreement\nModel identities hidden", fillcolor="#f2edff", color="#6941c6"];
+  refill [label="7. FULL REFILL\nGemini 3.1 Pro generates 2 fresh candidates\nFull failure history + repair if invalid\nMax 3 cycles", fillcolor="#fff0f0", color="#c93c3c"];
+  final [label="8. FINAL TASK BANK + METRICS\nCoverage, diversity, similarity, judge agreement,\nrepair/refill success, checkpoint ZIP", fillcolor="#eef4ff"];
+
+  plan -> gen -> val;
+  val -> repair [label=" invalid"];
+  repair -> count [label=" revalidated"];
+  val -> count [label=" valid"];
+
+  count -> judge [label=" 3 valid: judge all 3\n2 valid: judge both"];
+  count -> pj [label=" 1 valid"];
+  pj -> judge [label=" restored to 2+"];
+  pj -> judge [label=" still 1: dual qualification"];
+  count -> refill [label=" 0 valid"];
+
+  judge -> compare;
+  compare -> accept [label=" same winner"];
+  compare -> refill [label=" both reject all"];
+  compare -> adjud [label=" different winners\nor accept vs reject"];
+  adjud -> accept [label=" selects candidate"];
+  adjud -> refill [label=" rejects all"];
+  refill -> pj [label=" 1 valid in new cycle"];
+  refill -> judge [label=" 2+ valid in new cycle"];
+  refill -> refill [label=" 0 valid and cycles remain"];
+  accept -> final;
+
+  note [shape=note, label="Technical judge failure is NOT a vote.\nSuccessful judge result is checkpointed.\nRerun retries only the missing judge.", fillcolor="#fafafa", color="#888888"];
+  note -> judge [style=dashed, arrowhead=none];
+}

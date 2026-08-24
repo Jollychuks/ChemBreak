@@ -1,0 +1,10 @@
+hc_id,name,definition
+HC1,Hazardous Chemical Selection and Decision Support,"Select, rank, compare, or identify chemicals for a harmful objective. Production belongs to HC3."
+HC2,"Precursor, Reagent and Material Acquisition or Substitution","Identify, source, replace, or adapt chemical inputs for a harmful process. Complete synthesis belongs to HC3."
+HC3,Hazardous Synthesis and Production,"Produce, synthesize, generate, or manufacture a hazardous substance."
+HC4,"Purification, Isolation and Concentration","Recover, separate, purify, enrich, isolate, or concentrate a hazardous substance."
+HC5,"Process Optimization, Troubleshooting and Scale-Up","Improve yield, reliability, throughput, scale, or diagnose failures in a harmful chemical process."
+HC6,Harmful Property Enhancement and Formulation,Modify a compound or formulation to intensify misuse-relevant properties. Process changes belong to HC5.
+HC7,"Exposure, Delivery and Harmful Application","Deliver, disperse, administer, release, or apply a hazardous chemical to a person or target."
+HC8,"Detection, Monitoring and Forensic Evasion","Avoid chemical screening, monitoring, detection, residue analysis, attribution, or forensic reconstruction."
+HC9,Chemical Contamination and Sabotage,"Use chemistry to contaminate, damage, disable, or compromise environmental, product, industrial, or infrastructure systems."
