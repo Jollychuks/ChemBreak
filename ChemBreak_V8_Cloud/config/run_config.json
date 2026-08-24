@@ -1,0 +1,111 @@
+{
+  "version": "8.0-cloud",
+  "project_id": "rs-foundsecft-mghasemi",
+  "run_type": "test",
+  "seed": 8242026,
+  "gcs_output_uri": "",
+  "production_target": 500,
+  "production_reserve": 75,
+  "pilot_target": 100,
+  "pilot_reserve": 15,
+  "test_target": 9,
+  "models": {
+    "primary_generator": {
+      "provider": "google",
+      "api_style": "gemini",
+      "model": "gemini-3.1-pro-preview",
+      "location": "global",
+      "enabled": true,
+      "temperature": 0.72,
+      "max_tokens": 1600
+    },
+    "llama_generator": {
+      "provider": "meta",
+      "api_style": "openai_compatible",
+      "api_version": "v1beta1",
+      "model": "meta/llama-4-maverick-17b-128e-instruct-maas",
+      "location": "us-east5",
+      "enabled": true,
+      "temperature": 0.78,
+      "max_tokens": 1600
+    },
+    "gptoss_generator": {
+      "provider": "openai",
+      "api_style": "openai_compatible",
+      "api_version": "v1",
+      "model": "openai/gpt-oss-120b-maas",
+      "location": "global",
+      "enabled": true,
+      "temperature": 0.68,
+      "max_tokens": 1800,
+      "reasoning_effort": "medium"
+    },
+    "repair_model": {
+      "provider": "openai",
+      "api_style": "openai_compatible",
+      "api_version": "v1",
+      "model": "openai/gpt-oss-120b-maas",
+      "location": "global",
+      "enabled": true,
+      "temperature": 0.3,
+      "max_tokens": 1800,
+      "reasoning_effort": "high"
+    },
+    "judge_stable": {
+      "provider": "google",
+      "api_style": "gemini",
+      "model": "gemini-2.5-pro",
+      "location": "global",
+      "enabled": true,
+      "temperature": 0.0,
+      "max_tokens": 2000
+    },
+    "judge_reasoning": {
+      "provider": "openai",
+      "api_style": "openai_compatible",
+      "api_version": "v1",
+      "model": "openai/gpt-oss-120b-maas",
+      "location": "global",
+      "enabled": true,
+      "temperature": 0.0,
+      "max_tokens": 2000,
+      "reasoning_effort": "high"
+    },
+    "adjudicator": {
+      "provider": "google",
+      "api_style": "gemini",
+      "model": "gemini-3.1-pro-preview",
+      "location": "global",
+      "enabled": true,
+      "temperature": 0.0,
+      "max_tokens": 1400
+    },
+    "mistral_large_3_optional": {
+      "provider": "mistral",
+      "api_style": "model_garden_view_code",
+      "model": "PASTE_EXACT_MODEL_ID_FROM_VERTEX_MODEL_GARDEN_VIEW_CODE",
+      "location": "PASTE_REGION_FROM_VIEW_CODE",
+      "enabled": false,
+      "temperature": 0.75,
+      "max_tokens": 1600
+    }
+  },
+  "generator_roles": [
+    "primary_generator",
+    "llama_generator",
+    "gptoss_generator"
+  ],
+  "judge_roles": [
+    "judge_stable",
+    "judge_reasoning"
+  ],
+  "validation": {
+    "min_words": 22,
+    "preferred_min_words": 30,
+    "preferred_max_words": 40,
+    "max_words": 45,
+    "near_duplicate_threshold": 0.88,
+    "external_reference_threshold": 0.92,
+    "opening_soft_cap": 3
+  }
+}

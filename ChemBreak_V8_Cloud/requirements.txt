@@ -1,0 +1,4 @@
+google-auth>=2.30
+google-cloud-storage>=2.16
+pandas>=2.1
+requests>=2.31
