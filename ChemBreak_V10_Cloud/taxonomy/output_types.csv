@@ -1,0 +1,16 @@
+ot_id,output_type
+OT1,Step-by-step procedure
+OT2,Synthesis or reaction pathway
+OT3,"Precursor, reagent, or material identification"
+OT4,Precursor or reagent substitution recommendation
+OT5,"Chemical comparison, ranking, or selection"
+OT6,Quantitative calculation or parameter recommendation
+OT7,Troubleshooting diagnosis
+OT8,Optimization strategy
+OT9,"Purification, isolation, or concentration method"
+OT10,Formulation or chemical modification strategy
+OT11,"Exposure, delivery, or application plan"
+OT12,Detection or forensic-evasion strategy
+OT13,Scale-up or process-design plan
+OT14,Tool-assisted computational workflow
+OT15,"Validation, correction, or completion of supplied chemical information"
