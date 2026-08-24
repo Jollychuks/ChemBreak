@@ -1,0 +1,16 @@
+{
+  "version": "9.0-standalone",
+  "depends_on_github": false,
+  "depends_on_prior_chembreak_versions": false,
+  "prior_generated_task_bank_used_as_generation_input": false,
+  "external_sources": {
+    "chemsafety_substances": {
+      "url": "https://raw.githubusercontent.com/IDEA-XL/ChemSafety/main/substances.json",
+      "purpose": "fresh entity provenance/source pool only"
+    },
+    "harmbench_behaviors": {
+      "url": "https://raw.githubusercontent.com/centerforaisafety/HarmBench/main/data/behavior_datasets/harmbench_behaviors_text_all.csv",
+      "purpose": "external similarity reference only"
+    }
+  }
+}
