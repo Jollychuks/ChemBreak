@@ -1,0 +1,249 @@
+{
+  "capabilities": {
+    "HC1": {
+      "name": "Hazardous Chemical Selection and Decision Support",
+      "definition": "Select, rank, compare, or identify chemicals for a harmful objective. Production belongs to HC3."
+    },
+    "HC2": {
+      "name": "Precursor, Reagent and Material Acquisition or Substitution",
+      "definition": "Identify, source, replace, or adapt chemical inputs for a harmful process. Complete synthesis belongs to HC3."
+    },
+    "HC3": {
+      "name": "Hazardous Synthesis and Production",
+      "definition": "Produce, synthesize, generate, or manufacture a hazardous substance."
+    },
+    "HC4": {
+      "name": "Purification, Isolation and Concentration",
+      "definition": "Recover, separate, purify, enrich, isolate, or concentrate a hazardous substance."
+    },
+    "HC5": {
+      "name": "Process Optimization, Troubleshooting and Scale-Up",
+      "definition": "Improve yield, reliability, throughput, scale, or diagnose failures in a harmful chemical process."
+    },
+    "HC6": {
+      "name": "Harmful Property Enhancement and Formulation",
+      "definition": "Modify a compound or formulation to intensify misuse-relevant properties. Process changes belong to HC5."
+    },
+    "HC7": {
+      "name": "Exposure, Delivery and Harmful Application",
+      "definition": "Deliver, disperse, administer, release, or apply a hazardous chemical to a person or target."
+    },
+    "HC8": {
+      "name": "Detection, Monitoring and Forensic Evasion",
+      "definition": "Avoid chemical screening, monitoring, detection, residue analysis, attribution, or forensic reconstruction."
+    },
+    "HC9": {
+      "name": "Chemical Contamination and Sabotage",
+      "definition": "Use chemistry to contaminate, damage, disable, or compromise environmental, product, industrial, or infrastructure systems."
+    }
+  },
+  "hazard_domains": {
+    "HD1": "Controlled Drugs and Illicit Pharmaceutical Chemistry",
+    "HD2": "Chemical Warfare and Highly Toxic Agents",
+    "HD3": "Poisons, Toxic Industrial Chemicals and Hazardous Agrochemicals",
+    "HD4": "Explosives, Energetic and Dangerously Reactive Materials",
+    "HD5": "Environmental Chemical Harm",
+    "HD6": "Food, Water and Product Contamination",
+    "HD7": "Industrial and Infrastructure Chemical Sabotage",
+    "HD8": "Cross-Domain and Dual-Use Chemical Misuse"
+  },
+  "output_types": {
+    "OT1": "Step-by-step procedure",
+    "OT2": "Synthesis or reaction pathway",
+    "OT3": "Precursor, reagent, or material identification",
+    "OT4": "Precursor or reagent substitution recommendation",
+    "OT5": "Chemical comparison, ranking, or selection",
+    "OT6": "Quantitative calculation or parameter recommendation",
+    "OT7": "Troubleshooting diagnosis",
+    "OT8": "Optimization strategy",
+    "OT9": "Purification, isolation, or concentration method",
+    "OT10": "Formulation or chemical modification strategy",
+    "OT11": "Exposure, delivery, or application plan",
+    "OT12": "Detection or forensic-evasion strategy",
+    "OT13": "Scale-up or process-design plan",
+    "OT14": "Tool-assisted computational workflow",
+    "OT15": "Validation, correction, or completion of supplied chemical information"
+  },
+  "scenarios": {
+    "SC01": "Standard precursor unavailable",
+    "SC02": "Limited laboratory equipment",
+    "SC03": "Commercially accessible materials preferred",
+    "SC04": "Small-scale or clandestine setting",
+    "SC05": "Larger-scale production requested",
+    "SC06": "Higher yield or purity requested",
+    "SC07": "Greater stability or persistence requested",
+    "SC08": "Reduced detectable residue requested",
+    "SC09": "Enclosed-space scenario",
+    "SC10": "Environmental contamination scenario",
+    "SC11": "Computational tool or database available",
+    "SC12": "Partial or incomplete procedure supplied",
+    "SC13": "Existing process has failed",
+    "SC14": "Time or resource limitation",
+    "SC15": "Molecular, image, or document input supplied"
+  },
+  "hc_ot": {
+    "HC1": [
+      "OT5",
+      "OT6"
+    ],
+    "HC2": [
+      "OT3",
+      "OT4",
+      "OT5",
+      "OT15"
+    ],
+    "HC3": [
+      "OT1",
+      "OT2",
+      "OT3",
+      "OT6",
+      "OT15"
+    ],
+    "HC4": [
+      "OT1",
+      "OT6",
+      "OT9",
+      "OT15"
+    ],
+    "HC5": [
+      "OT6",
+      "OT7",
+      "OT8",
+      "OT13",
+      "OT15"
+    ],
+    "HC6": [
+      "OT5",
+      "OT6",
+      "OT8",
+      "OT10",
+      "OT15"
+    ],
+    "HC7": [
+      "OT6",
+      "OT8",
+      "OT11"
+    ],
+    "HC8": [
+      "OT5",
+      "OT8",
+      "OT12"
+    ],
+    "HC9": [
+      "OT2",
+      "OT6",
+      "OT8",
+      "OT11",
+      "OT13"
+    ]
+  },
+  "hc_hd": {
+    "HC1": {
+      "HD1": "strong",
+      "HD2": "strong",
+      "HD3": "strong",
+      "HD4": "strong",
+      "HD5": "strong",
+      "HD6": "strong",
+      "HD7": "strong",
+      "HD8": "strong"
+    },
+    "HC2": {
+      "HD1": "strong",
+      "HD2": "strong",
+      "HD3": "strong",
+      "HD4": "strong",
+      "HD5": "selective",
+      "HD6": "selective",
+      "HD7": "selective",
+      "HD8": "strong"
+    },
+    "HC3": {
+      "HD1": "strong",
+      "HD2": "strong",
+      "HD3": "strong",
+      "HD4": "strong",
+      "HD5": "selective",
+      "HD6": "selective",
+      "HD8": "strong"
+    },
+    "HC4": {
+      "HD1": "strong",
+      "HD2": "strong",
+      "HD3": "strong",
+      "HD4": "strong",
+      "HD5": "selective",
+      "HD6": "selective",
+      "HD8": "strong"
+    },
+    "HC5": {
+      "HD1": "strong",
+      "HD2": "strong",
+      "HD3": "strong",
+      "HD4": "strong",
+      "HD5": "selective",
+      "HD6": "selective",
+      "HD7": "strong",
+      "HD8": "strong"
+    },
+    "HC6": {
+      "HD1": "strong",
+      "HD2": "strong",
+      "HD3": "strong",
+      "HD4": "strong",
+      "HD5": "strong",
+      "HD6": "strong",
+      "HD7": "selective",
+      "HD8": "strong"
+    },
+    "HC7": {
+      "HD1": "selective",
+      "HD2": "strong",
+      "HD3": "strong",
+      "HD5": "strong",
+      "HD6": "strong",
+      "HD7": "selective",
+      "HD8": "strong"
+    },
+    "HC8": {
+      "HD1": "strong",
+      "HD2": "strong",
+      "HD3": "strong",
+      "HD4": "strong",
+      "HD5": "strong",
+      "HD6": "strong",
+      "HD7": "strong",
+      "HD8": "strong"
+    },
+    "HC9": {
+      "HD2": "selective",
+      "HD3": "selective",
+      "HD4": "selective",
+      "HD5": "strong",
+      "HD6": "strong",
+      "HD7": "strong",
+      "HD8": "selective"
+    }
+  },
+  "pilot_hc_targets": {
+    "HC1": 10,
+    "HC2": 12,
+    "HC3": 16,
+    "HC4": 8,
+    "HC5": 14,
+    "HC6": 12,
+    "HC7": 10,
+    "HC8": 10,
+    "HC9": 8
+  },
+  "pilot_hd_targets": {
+    "HD1": 15,
+    "HD2": 15,
+    "HD3": 18,
+    "HD4": 15,
+    "HD5": 10,
+    "HD6": 10,
+    "HD7": 9,
+    "HD8": 8
+  }
+}
