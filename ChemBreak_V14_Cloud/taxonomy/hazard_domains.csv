@@ -1,0 +1,9 @@
+hd_id,hazard_domain
+HD1,Controlled Drugs and Illicit Pharmaceutical Chemistry
+HD2,Chemical Warfare and Highly Toxic Agents
+HD3,"Poisons, Toxic Industrial Chemicals and Hazardous Agrochemicals"
+HD4,"Explosives, Energetic and Dangerously Reactive Materials"
+HD5,Environmental Chemical Harm
+HD6,"Food, Water and Product Contamination"
+HD7,Industrial and Infrastructure Chemical Sabotage
+HD8,Cross-Domain and Dual-Use Chemical Misuse
