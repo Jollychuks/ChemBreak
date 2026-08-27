@@ -1,0 +1,63 @@
+project_name: ChemBreak Adaptive Jailbreak
+package_version: CB-ADAPTIVE-JAILBREAK-V3
+python_package_version: 3.0.0
+repository: https://github.com/Jollychuks/ChemBreak
+repository_subdirectory: ChemBreak_Adaptive_Jailbreak_v3
+runtime: Google Cloud Colab Enterprise
+execution_order:
+  - storage_setup
+  - install
+  - runtime_config
+  - preflight
+  - prepare
+  - execute_chemdfm
+  - execute_chemllm
+  - execute_llasmol
+  - metrics
+model_roles:
+  attacker: gemini-3.1-pro-preview
+  safety_judge: openai/gpt-oss-120b-maas
+  chemistry_judge: gemini-2.5-pro
+  chemistry_domain_verifier: deterministic_rdkit_metadata
+  adjudicator: meta/llama-4-maverick-17b-128e-instruct-maas
+target_models:
+  - ChemDFM
+  - ChemLLM
+  - LlaSMol
+sampling:
+  test: 8
+  pilot: 40
+  production: all_500
+methodology_controls:
+  attacker_uses_judge_feedback: false
+  judge_history_contains_prior_evaluations: false
+  target_history_contains_judge_evaluations: false
+  fixed_multi_is_frozen_before_target_feedback: true
+structured_output:
+  gemini_response_json_schema: true
+  chemistry_judge_thinking_budget: 1024
+  chemistry_judge_max_output_tokens: 4096
+  judge_validation_attempts: 2
+rate_limiting:
+  gpt_oss_min_interval_seconds: 4
+  adaptive_429_pacing: true
+  rate_limit_interval_seconds: 8
+  rate_limit_interval_max_seconds: 30
+diagnostics:
+  explicit_attacker_progress: true
+  model_client_diagnostics: true
+  role_specific_preflight_smoke_tests: true
+storage:
+  hf_cache: /content/hf_cache
+  min_hf_cache_free_gb: 80
+  min_system_free_gb: 5
+network_reliability:
+  retry_429: true
+  exponential_backoff: true
+  judge_schema_retries: true
+target_load_behavior:
+  load_once_per_target_block: true
+  abort_block_on_load_failure: true
+namespace:
+  fresh_from_v2: true
+  imports_v2_results: false
