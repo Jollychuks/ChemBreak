@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chembreak-adaptive-jailbreak"
+version = "2.0.0"
+description = "GitHub-to-Colab Enterprise controlled and adaptive ChemBreak evaluation for chemistry language models"
+requires-python = ">=3.10"
+
+[tool.setuptools]
+packages = ["chembreak", "chembreak.targets"]

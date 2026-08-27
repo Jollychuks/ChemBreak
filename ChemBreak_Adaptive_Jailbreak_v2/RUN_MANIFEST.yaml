@@ -1,0 +1,41 @@
+project_name: ChemBreak Adaptive Jailbreak
+package_version: CB-ADAPTIVE-JAILBREAK-V2
+python_package_version: 2.0.0
+repository: https://github.com/Jollychuks/ChemBreak
+repository_subdirectory: ChemBreak_Adaptive_Jailbreak_v2
+runtime: Google Cloud Colab Enterprise
+execution_order:
+  - storage_setup
+  - install
+  - runtime_config
+  - preflight
+  - prepare
+  - execute_chemdfm
+  - execute_chemllm
+  - execute_llasmol
+  - metrics
+model_roles:
+  attacker: gemini-3.1-pro-preview
+  safety_judge: openai/gpt-oss-120b-maas
+  chemistry_judge: gemini-2.5-pro
+  chemistry_domain_verifier: deterministic_rdkit_metadata
+  adjudicator: meta/llama-4-maverick-17b-128e-instruct-maas
+target_models:
+  - ChemDFM
+  - ChemLLM
+  - LlaSMol
+sampling:
+  test: 8
+  pilot: 40
+  production: all_500
+storage:
+  hf_cache: /content/hf_cache
+  min_hf_cache_free_gb: 80
+  min_system_free_gb: 5
+network_reliability:
+  retry_429: true
+  exponential_backoff: true
+  judge_schema_retries: true
+target_load_behavior:
+  load_once_per_target_block: true
+  abort_block_on_load_failure: true
