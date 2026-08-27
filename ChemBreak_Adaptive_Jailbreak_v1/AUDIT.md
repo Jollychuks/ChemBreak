@@ -1,0 +1,35 @@
+# Offline build audit
+
+- Fresh namespace: CB-ADAPTIVE-JAILBREAK-V1
+- Repository target: https://github.com/Jollychuks/ChemBreak
+- Repository subdirectory: ChemBreak_Adaptive_Jailbreak_v1
+- Colab Enterprise clone-and-run notebook implemented
+- No prior task-bank outputs modified
+- Production task bank expected from restricted local/GCS storage, not committed to the public repo
+- Taxonomy columns auto-detected, never invented
+- Controlled C0, C1, C2 implemented
+- Adaptive C3 implemented
+- Four chemistry-specific route families implemented
+- Initial attack assets frozen before target execution
+- Repeated single-turn assets generated as one independent set per task
+- Repeated single-turn uses fresh target context
+- Fixed multi-turn is generated before target responses
+- Adaptive target response loops back to attacker
+- Judge feedback is not given to attacker
+- Target-query budgets counted explicitly
+- Dual safety and chemistry judges implemented
+- Adjudication implemented for near-threshold cases
+- Raw transcripts separated from public metrics
+- GCS checkpoint sync implemented
+- Stable run IDs and resumable completed-unit skipping implemented
+- Preflight reproducibility manifest implemented
+- Progress and ETA implemented
+- Turn-level progress metadata implemented without printing raw harmful responses
+- Target models loaded one at a time
+- Each target model is loaded once per execution block and reused across tasks and conditions
+- ChemDFM model-specific dialogue formatting implemented
+- ChemLLM InternLM-style dialogue formatting implemented
+- LlaSMol LoRA loader and multi-turn context wrapper implemented
+- Python compilation passed
+- Offline unit tests passed: 4/4
+- No live target-model or Vertex attack calls were made while packaging
