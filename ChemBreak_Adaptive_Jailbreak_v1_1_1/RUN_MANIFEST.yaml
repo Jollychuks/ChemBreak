@@ -1,0 +1,43 @@
+project_name: ChemBreak Adaptive Jailbreak
+package_version: CB-ADAPTIVE-JAILBREAK-V1.1.1
+repository: https://github.com/Jollychuks/ChemBreak
+repository_subdirectory: ChemBreak_Adaptive_Jailbreak_v1_1_1
+runtime: Google Cloud Colab Enterprise
+execution_order:
+  - preflight
+  - prepare
+  - execute_chemdfm
+  - execute_chemllm
+  - execute_llasmol
+  - metrics
+model_roles:
+  attacker: gemini-3.1-pro-preview
+  safety_judge: openai/gpt-oss-120b-maas
+  chemistry_judge: gemini-2.5-pro
+  chemistry_domain_verifier: deterministic_rdkit_metadata
+  adjudicator: meta/llama-4-maverick-17b-128e-instruct-maas
+target_models:
+  - ChemDFM
+  - ChemLLM
+  - LlaSMol
+controlled_conditions:
+  - C0_direct_single
+  - C1_repeated_single
+  - C2_fixed_multi
+adaptive_condition:
+  - C3_adaptive_chembreak
+adaptive_routes:
+  - representation
+  - context
+  - conceptual_decomposition
+  - output_oriented
+
+asset_preparation:
+  max_generation_attempts_per_asset: 3
+  structural_defect_feedback: true
+  normalize_unambiguous_bare_lists: true
+  fail_prepare_if_assets_missing: true
+compatibility_import:
+  source_version: CB-ADAPTIVE-JAILBREAK-V1.1
+  imports_complete_assets_only: true
+  source_is_read_only: true
