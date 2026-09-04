@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chembreak3"
+version = "3.0.0"
+description = "Controlled adaptive multi-turn safety evaluation for chemistry language models"
+requires-python = ">=3.10"
+dependencies = [
+  "accelerate>=1.2,<2",
+  "google-auth>=2.35,<3",
+  "google-cloud-storage>=2.18,<4",
+  "google-genai>=1.47,<2",
+  "openai>=1.57,<3",
+  "numpy>=1.26,<3",
+  "pandas>=2.2,<3",
+  "peft>=0.13,<1",
+  "pydantic>=2.9,<3",
+  "PyYAML>=6.0,<7",
+  "rdkit>=2024.3",
+  "rich>=13.9,<15",
+  "scipy>=1.13,<2",
+  "sentencepiece>=0.2,<1",
+  "tenacity>=9,<10",
+  "transformers>=4.46,<5",
+]
+
+[project.scripts]
+chembreak3 = "chembreak3.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

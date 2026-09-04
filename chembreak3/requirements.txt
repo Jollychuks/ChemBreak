@@ -1,0 +1,18 @@
+# Install a CUDA-compatible PyTorch build separately if the notebook image
+# does not already provide one.
+accelerate>=1.2,<2
+google-auth>=2.35,<3
+google-cloud-storage>=2.18,<4
+google-genai>=1.47,<2
+openai>=1.57,<3
+numpy>=1.26,<3
+pandas>=2.2,<3
+peft>=0.13,<1
+pydantic>=2.9,<3
+PyYAML>=6.0,<7
+rdkit>=2024.3
+rich>=13.9,<15
+scipy>=1.13,<2
+sentencepiece>=0.2,<1
+tenacity>=9,<10
+transformers>=4.46,<5
