@@ -1,0 +1,9 @@
+_base_: config.test.yaml
+run:
+  phase: production
+  dry_run: false
+  live_acknowledgement: true
+  checkpoint_every_episodes: 5
+experiment:
+  task_count: 500
+
