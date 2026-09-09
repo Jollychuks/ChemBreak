@@ -1,9 +1,0 @@
-_base_: config.development.yaml
-run:
-  phase: pilot
-  seed: 7102026
-experiment:
-  task_count: 40
-  verification_mode: screened
-  negative_audit_rate: 0.20
-
