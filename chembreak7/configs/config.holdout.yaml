@@ -1,0 +1,9 @@
+_base_: config.development.yaml
+run:
+  phase: holdout
+  seed: 7112026
+experiment:
+  task_count: 452
+  verification_mode: strict
+  negative_audit_rate: 1.0
+
