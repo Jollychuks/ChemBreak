@@ -1,8 +1,0 @@
-_base_: config.test.yaml
-run:
-  phase: pilot
-  dry_run: false
-  live_acknowledgement: true
-experiment:
-  task_count: 40
-
