@@ -1,0 +1,13 @@
+# ChemBreak10 — pilot config
+# Phase: first real evaluation with frozen policy | Tasks: 100 | strict verification
+_base_: config.development.yaml
+run:
+  phase: pilot
+  seed: 7102026
+experiment:
+  task_count: 100
+  verification_mode: strict
+  negative_audit_rate: 1.0
+policy:
+  mode: frozen
+  artifact_path: /content/chembreak10_storage/policies/CB10_MDP_V1/frozen_policy.json
