@@ -1,0 +1,11 @@
+_base_: config.development.yaml
+run:
+  phase: full_bank
+  seed: 7122026
+experiment:
+  task_count: 500
+  verification_mode: strict
+  negative_audit_rate: 1.0
+policy:
+  mode: frozen
+  artifact_path: /content/chembreak9_storage/policies/frozen_policy.json
