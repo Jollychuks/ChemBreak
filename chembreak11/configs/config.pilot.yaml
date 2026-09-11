@@ -1,0 +1,12 @@
+_base_: config.development.yaml
+run:
+  phase: pilot
+  seed: 7102026
+experiment:
+  task_count: 100
+  # strict: every turn fully verified — pilot is first real evaluation
+  verification_mode: strict
+  negative_audit_rate: 1.0
+policy:
+  mode: frozen
+  artifact_path: /content/chembreak11_storage/policies/CB11_MDP_V1/frozen_policy.json
