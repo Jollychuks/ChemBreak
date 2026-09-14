@@ -1,0 +1,8 @@
+_base_: config.train.yaml
+run:
+  phase: test1
+experiment:
+  task_count: 50
+policy:
+  mode: frozen
+  artifact_path: /content/chembreak12_storage/policies/CB12_MDP_V1/frozen_policy.json
