@@ -1,0 +1,242 @@
+{
+  "dimensions": {
+    "hc_id": {
+      "HC1": {
+        "Test1": 4,
+        "Test2": 4,
+        "Test3": 4,
+        "Test4": 4,
+        "Train": 20
+      },
+      "HC2": {
+        "Test1": 5,
+        "Test2": 6,
+        "Test3": 7,
+        "Test4": 6,
+        "Train": 28
+      },
+      "HC3": {
+        "Test1": 8,
+        "Test2": 9,
+        "Test3": 8,
+        "Test4": 9,
+        "Train": 39
+      },
+      "HC4": {
+        "Test1": 4,
+        "Test2": 3,
+        "Test3": 4,
+        "Test4": 4,
+        "Train": 18
+      },
+      "HC5": {
+        "Test1": 8,
+        "Test2": 7,
+        "Test3": 7,
+        "Test4": 6,
+        "Train": 34
+      },
+      "HC6": {
+        "Test1": 7,
+        "Test2": 5,
+        "Test3": 4,
+        "Test4": 6,
+        "Train": 27
+      },
+      "HC7": {
+        "Test1": 5,
+        "Test2": 5,
+        "Test3": 6,
+        "Test4": 6,
+        "Train": 27
+      },
+      "HC8": {
+        "Test1": 5,
+        "Test2": 6,
+        "Test3": 5,
+        "Test4": 5,
+        "Train": 27
+      },
+      "HC9": {
+        "Test1": 4,
+        "Test2": 5,
+        "Test3": 5,
+        "Test4": 4,
+        "Train": 21
+      }
+    },
+    "hd_id": {
+      "HD1": {
+        "Test1": 8,
+        "Test2": 7,
+        "Test3": 7,
+        "Test4": 7,
+        "Train": 37
+      },
+      "HD2": {
+        "Test1": 7,
+        "Test2": 7,
+        "Test3": 7,
+        "Test4": 8,
+        "Train": 35
+      },
+      "HD3": {
+        "Test1": 9,
+        "Test2": 10,
+        "Test3": 10,
+        "Test4": 9,
+        "Train": 45
+      },
+      "HD4": {
+        "Test1": 8,
+        "Test2": 8,
+        "Test3": 7,
+        "Test4": 8,
+        "Train": 34
+      },
+      "HD5": {
+        "Test1": 5,
+        "Test2": 5,
+        "Test3": 5,
+        "Test4": 5,
+        "Train": 26
+      },
+      "HD6": {
+        "Test1": 6,
+        "Test2": 6,
+        "Test3": 6,
+        "Test4": 5,
+        "Train": 25
+      },
+      "HD7": {
+        "Test1": 4,
+        "Test2": 4,
+        "Test3": 4,
+        "Test4": 4,
+        "Train": 22
+      },
+      "HD8": {
+        "Test1": 3,
+        "Test2": 3,
+        "Test3": 4,
+        "Test4": 4,
+        "Train": 17
+      }
+    },
+    "ot_id": {
+      "OT1": {
+        "Test1": 3,
+        "Test2": 2,
+        "Test3": 2,
+        "Test4": 3,
+        "Train": 12
+      },
+      "OT10": {
+        "Test1": 1,
+        "Test2": 1,
+        "Test3": 1,
+        "Test4": 1,
+        "Train": 6
+      },
+      "OT11": {
+        "Test1": 2,
+        "Test2": 3,
+        "Test3": 3,
+        "Test4": 3,
+        "Train": 12
+      },
+      "OT12": {
+        "Test1": 2,
+        "Test2": 2,
+        "Test3": 1,
+        "Test4": 2,
+        "Train": 8
+      },
+      "OT13": {
+        "Test1": 2,
+        "Test2": 2,
+        "Test3": 3,
+        "Test4": 2,
+        "Train": 11
+      },
+      "OT14": {
+        "Test1": 5,
+        "Test2": 5,
+        "Test3": 4,
+        "Test4": 4,
+        "Train": 21
+      },
+      "OT15": {
+        "Test1": 5,
+        "Test2": 5,
+        "Test3": 5,
+        "Test4": 6,
+        "Train": 26
+      },
+      "OT2": {
+        "Test1": 2,
+        "Test2": 3,
+        "Test3": 3,
+        "Test4": 2,
+        "Train": 12
+      },
+      "OT3": {
+        "Test1": 3,
+        "Test2": 3,
+        "Test3": 3,
+        "Test4": 3,
+        "Train": 14
+      },
+      "OT4": {
+        "Test1": 1,
+        "Test2": 2,
+        "Test3": 2,
+        "Test4": 1,
+        "Train": 7
+      },
+      "OT5": {
+        "Test1": 6,
+        "Test2": 6,
+        "Test3": 6,
+        "Test4": 6,
+        "Train": 31
+      },
+      "OT6": {
+        "Test1": 9,
+        "Test2": 8,
+        "Test3": 8,
+        "Test4": 8,
+        "Train": 39
+      },
+      "OT7": {
+        "Test1": 1,
+        "Test2": 1,
+        "Test3": 1,
+        "Test4": 1,
+        "Train": 6
+      },
+      "OT8": {
+        "Test1": 7,
+        "Test2": 6,
+        "Test3": 7,
+        "Test4": 7,
+        "Train": 33
+      },
+      "OT9": {
+        "Test1": 1,
+        "Test2": 1,
+        "Test3": 1,
+        "Test4": 1,
+        "Train": 3
+      }
+    }
+  },
+  "split_counts": {
+    "Reserve": 59,
+    "Test1": 50,
+    "Test2": 50,
+    "Test3": 50,
+    "Test4": 50,
+    "Train": 241
+  }
+}
