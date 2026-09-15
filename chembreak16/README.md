@@ -1,27 +1,36 @@
 # ChemBreak 16
 
-ChemBreak 16 is the next development iteration of the adaptive MDP safety-evaluation harness. It addresses two problems exposed by the CB15 run: overly sparse state reuse and the lack of an unseen-task generalization measurement.
+ChemBreak 16 is a fixed-24-task adaptive-MDP safety-evaluation package for Google Cloud Notebook Enterprise.
 
-## What changed
+## Experiment flow
 
-CB16 uses a hierarchical policy rather than two near-duplicate Q tables. The frozen policy contains a global behavior table, separate HC/HD/OT context tables, and a lightweight task-specific table. These components use different keys and are combined by a weighted mean over components with prior visits. A new `cold_start` decision mode explicitly marks states with no learned support.
+The experiment deliberately keeps one fixed 24-task panel throughout:
 
-CB16 also restores the fixed partition firewall. The 24 learning tasks come only from the previously locked `CB12_PARTITION_V1` **Train** split. A separate 12-task holdout comes only from **Test1**. Holdout tasks cannot be accessed by the runner until the policy has been frozen.
+`Baseline → Learning Epoch 1 → Learning Epoch 2 → Learning Epoch 3 → Freeze Policy → Optimized Evaluation → Results`
 
-## Cloud workflow
+There is no train/test/holdout split inside this package. The purpose of this version is to change the MDP value architecture while keeping the experiment panel and phase structure stable.
 
-1. Put the `chembreak16/` folder in the existing GitHub `ChemBreak` repository.
-2. Open `chembreak16_Cloud_Notebook.ipynb` in Google Cloud Notebook Enterprise.
-3. Confirm the first-cell `PROJECT_ID`, `REPO_URL`, `BRANCH`, `PROJECT_SUBDIR`, `EXPERIMENT_REVISION`, `LIVE`, and `LIVE_PROGRESS` values.
-4. Run the notebook from Cell 1 downward.
-5. Do not reuse CB15 storage or policy artifacts. CB16 writes under `/content/chembreak16_storage`.
+## MDP value architecture
 
-## Experimental flow
+CB16 learns reusable value at several levels:
 
-The full run is Train Baseline (24) → three Train24 learning epochs (72) → freeze → Train24 optimized diagnostic (24) → Test1 Holdout Baseline (12) → Test1 Holdout Optimized (12). The final headline generalization comparison is Holdout Baseline ASR versus Holdout Optimized ASR.
+- `Qglobal[behavior_state][action]`
+- `Qhc[hc_id][behavior_state][action]`
+- `Qhd[hd_id][behavior_state][action]`
+- `Qot[ot_id][behavior_state][action]`
+- `Qtask[assignment_id][coarse_task_state][action]`
 
-The notebook displays live per-turn decisions and includes `Qg`, `Qhc`, `Qhd`, `Qot`, `Qt`, combined Q, active components, support visits, epsilon, repetition penalty, and blocked actions.
+Only components with prior support contribute to the weighted decision score. The global behavior state intentionally excludes the task ID and taxonomy IDs so experience can be reused across tasks.
 
-## Safety/evaluation scope
+## Cloud use
 
-The policy layer operates on abstract action identifiers and safety-evaluation state. Chemistry-specific bypass transformations are intentionally not hard-coded into the policy implementation.
+1. Put the `chembreak16/` directory in the GitHub `ChemBreak` repository.
+2. Open `notebooks/chembreak16_Cloud_Notebook.ipynb` in Google Cloud Notebook Enterprise.
+3. Edit the user configuration cell if needed.
+4. Run from Cell 1 downward.
+
+Runtime state is isolated under `/content/chembreak16_storage`.
+
+## Source task identifiers
+
+The source bank preserves its original assignment and matrix identifiers (for example `CBV15C-...` and `V15C-...`). These are immutable task/provenance identifiers from the frozen source data, not references to a CB15 runtime package. Renaming them would alter task identity and invalidate the source/manifest hashes.

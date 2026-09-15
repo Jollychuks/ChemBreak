@@ -8,8 +8,8 @@ from .utils import stable_hex, utc_now, write_json
 class HierarchicalQPolicy:
     """CB16 hierarchical tabular policy designed for cross-task reuse.
 
-    CB15's supposedly-general state included HC/HD/OT and was so specific that
-    no general state was shared across tasks in the observed run. CB16 separates:
+    The policy separates reusable behavioral value, taxonomy-context value,
+    and a lightweight task-specific residual:
       q_global[behavior_state][action]
       q_hc[hc_id][behavior_state][action]
       q_hd[hd_id][behavior_state][action]

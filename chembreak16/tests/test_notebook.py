@@ -1,13 +1,26 @@
 from pathlib import Path
-import json
+import json, re
 
-def test_cloud_notebook_has_expected_wiring_and_clean_cells():
-    root=Path(__file__).resolve().parents[1]; a=root/'chembreak16_Cloud_Notebook.ipynb'; b=root/'notebooks/chembreak16_Cloud_Notebook.ipynb'
-    assert a.read_bytes()==b.read_bytes(); nb=json.loads(a.read_text()); text="\n".join("".join(c.get("source",[])) for c in nb["cells"])
-    for x in ['PROJECT_ID','REPO_URL','PROJECT_SUBDIR','CB16_HIER_MDP_TRAIN24_TEST12_V1','chembreak16_storage','GOOGLE_CLOUD_PROJECT','LIVE_PROGRESS','running_ASR','0.30 → 0.20 → 0.15','mode=cold_start','Qhc','Qhd','Qot','holdout','CB12_partition_manifest_v1.csv','policy_diagnostics.csv']:
+def test_single_cloud_notebook_and_expected_wiring():
+    root=Path(__file__).resolve().parents[1]
+    notebooks=list(root.rglob('*.ipynb'))
+    assert notebooks==[root/'notebooks/chembreak16_Cloud_Notebook.ipynb']
+    nb=json.loads(notebooks[0].read_text()); text='\n'.join(''.join(c.get('source',[])) for c in nb['cells'])
+    for x in ['PROJECT_ID','REPO_URL','PROJECT_SUBDIR','CB16_HIER_MDP_MINI24_V1','chembreak16_storage','GOOGLE_CLOUD_PROJECT','LIVE_PROGRESS','running_ASR','0.30 → 0.20 → 0.15','mode=cold_start','Qhc','Qhd','Qot','policy_diagnostics.csv','policy_support_summary.json']:
         assert x in text
-    for old in ['chembreak15_storage','chembreak14_storage','chembreak13_storage','chembreak12_storage','CB16_MDP_MINI24_V1']:
-        assert old not in text
+    assert not re.search(r'CB(?:[1-9]|1[0-5])_(?!\d)',text)
+    assert not re.search(r'chembreak(?:[1-9]|1[0-5])(?!\d)',text,re.I)
     for i,c in enumerate(nb['cells'],1):
         if c['cell_type']=='code':
             compile(''.join(c['source']),f'cell{i}','exec'); assert c.get('execution_count') is None and not c.get('outputs')
+
+def test_dependency_install_precedes_bundle_verification():
+    import json
+    root=Path(__file__).resolve().parents[1]
+    nb_path=root/'notebooks/chembreak16_Cloud_Notebook.ipynb'
+    nb=json.loads(nb_path.read_text())
+    text=["".join(c.get("source",[])) for c in nb["cells"]]
+    install=next(i for i,x in enumerate(text) if "Install the CB16 dependency stack" in x)
+    verify=next(i for i,x in enumerate(text) if "Verify the fixed 24-task CB16 panel" in x)
+    assert install < verify
+

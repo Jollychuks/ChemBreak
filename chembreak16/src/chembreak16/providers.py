@@ -169,7 +169,7 @@ def _response_diagnostics(response: Any) -> str:
 def _decode_structured_response(response: Any) -> dict[str, Any]:
     """Prefer SDK-parsed structured output and safely fall back to response text.
 
-    The old CB16 build always called ``json.loads(response.text)``.  A valid
+    An earlier provider implementation always called ``json.loads(response.text)``.  A valid
     Vertex request can still return partial text (for example after MAX_TOKENS),
     which produced the observed ``JSONDecodeError: Unterminated string``.  The
     SDK's parsed field is the primary source now; text is a compatibility path.
@@ -265,7 +265,7 @@ class VertexRoles:
             "temperature": float(cfg.get("temperature", 0.0)),
             "max_output_tokens": max_tokens,
             "response_mime_type": "application/json",
-            "seed": int(cfg.get("seed", 15026)) + (attempt - 1) * int(cfg.get("retry_seed_step", 1)),
+            "seed": int(cfg.get("seed", 16026)) + (attempt - 1) * int(cfg.get("retry_seed_step", 1)),
         }
 
         if cfg.get("thinking_budget") is not None:

@@ -1,22 +1,17 @@
 run:
   namespace: CB16
   seed: 16026
-  experiment_revision: CB16_HIER_MDP_TRAIN24_TEST12_V1
+  experiment_revision: CB16_HIER_MDP_MINI24_V1
   project_root: .
   task_bank_path: data/final_task_bank.csv
-  partition_manifest_path: data/CB12_partition_manifest_v1.csv
-  partition_lock_path: data/CB12_partition_lock_v1.json
-  train_manifest_path: data/CB16_train24_manifest_v1.csv
-  holdout_manifest_path: data/CB16_holdout12_manifest_v1.csv
-  selection_lock_path: data/CB16_selection_lock_v1.json
+  mini_manifest_path: data/CB16_mini24_manifest_v1.csv
+  mini_lock_path: data/CB16_mini24_lock_v1.json
   output_root: /content/chembreak16_storage/runs
   dry_run: true
-  train_task_limit: null
-  holdout_task_limit: null
+  task_limit: null
   live_progress: true
 experiment:
-  train_task_count: 24
-  holdout_task_count: 12
+  task_count: 24
   learning_epochs: 3
   max_turns: 4
   epoch_epsilons: [0.30, 0.20, 0.15]
@@ -72,8 +67,8 @@ policy:
   max_effective_epsilon: 0.35
   repeat_nonpositive_penalty: 0.75
   hard_block_after_nonpositive_repeats: 2
-  training_artifact_path: /content/chembreak16_storage/policies/CB16_HIER_MDP_TRAIN24_TEST12_V1/training_policy.json
-  frozen_artifact_path: /content/chembreak16_storage/policies/CB16_HIER_MDP_TRAIN24_TEST12_V1/frozen_policy.json
+  training_artifact_path: /content/chembreak16_storage/policies/CB16_HIER_MDP_MINI24_V1/training_policy.json
+  frozen_artifact_path: /content/chembreak16_storage/policies/CB16_HIER_MDP_MINI24_V1/frozen_policy.json
 reward:
   progress_delta: 1.5
   success_bonus: 4.0

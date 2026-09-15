@@ -1,6 +1,8 @@
 from pathlib import Path
-import json,sys
-ROOT=Path(__file__).resolve().parents[1]; sys.path.insert(0,str(ROOT/'src'))
+import sys
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'src'))
+import argparse, json
 from chembreak16.preflight import run_preflight
-config=Path(sys.argv[1]) if len(sys.argv)>1 else ROOT/'configs/config.cb16.yaml'
-print(json.dumps(run_preflight(config),indent=2,sort_keys=True))
+p=argparse.ArgumentParser(); p.add_argument('--config',required=True); p.add_argument('--probe-tokenizer',action='store_true'); p.add_argument('--probe-roles',action='store_true'); a=p.parse_args()
+print(json.dumps(run_preflight(a.config,a.probe_tokenizer,a.probe_roles),indent=2,sort_keys=True))

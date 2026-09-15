@@ -1,14 +1,25 @@
-# ChemBreak 16 changes
+# ChemBreak 16 — v16.1.1
 
-- Replaced CB15's duplicated `q_general` + `q_task` structure with hierarchical `q_global`, `q_hc`, `q_hd`, `q_ot`, and `q_task` tables.
-- Removed HC/HD/OT identifiers from the global behavioral state so global values can actually transfer across tasks.
-- Added a coarser task-state key to improve within-task revisit rates across epochs.
-- Combined Q components with a weighted mean over visited components rather than summing duplicated evidence.
-- Added explicit `cold_start` mode when no learned component supports a decision.
-- Retained gradual epsilon schedule `0.30 → 0.20 → 0.15`, adaptive novelty/negative-feedback bonuses, and anti-repetition controls.
-- Restored the fixed CB12 partition firewall: Train24 comes only from `Train`; Holdout12 comes only from `Test1`.
-- Added a hard runtime rule preventing any holdout access before policy freeze.
-- Added an unseen-task holdout evaluation with no Q updates and no task-specific memory for holdout IDs.
-- Fixed summary semantics so phases that have not run report `null` ASR instead of false zero values.
-- Added richer hierarchical policy diagnostics and separate train/holdout ASR deltas.
-- New namespace/version/storage: `CB16`, `16.0.0`, `/content/chembreak16_storage`.
+This release keeps the same fixed 24-task experiment flow and changes the adaptive-MDP representation only.
+
+Key changes:
+
+- hierarchical Q-value decomposition for cross-task reuse;
+- smaller taxonomy-free global behavior state;
+- separate HC, HD, OT contextual value tables;
+- lightweight task-specific residual table;
+- weighted averaging of supported components instead of summing duplicate evidence;
+- explicit `cold_start` selection label when no learned component supports a decision;
+- retained adaptive epsilon and anti-repetition controls;
+- live Q diagnostics for every adaptive turn;
+- optimized-phase summary remains `null/not_run` until that phase actually runs;
+- one Cloud notebook only, stored under `notebooks/`;
+- CB16-only data/config/runtime artifacts.
+
+## v16.1.1 audit hardening
+
+- audited every package filename/path and CB16 runtime namespace;
+- added an automated prior-version runtime-name/artifact scan;
+- moved dependency installation before the pandas-based dataset verification cell for clean-runtime robustness;
+- clarified that `CBV15C-*` / `V15C-*` values are immutable source-data identifiers and must not be renamed;
+- removed ambiguous wording in the structured-output provider comments.

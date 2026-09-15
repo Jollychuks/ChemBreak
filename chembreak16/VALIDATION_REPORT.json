@@ -1,47 +1,124 @@
 {
-  "experiment_revision": "CB16_HIER_MDP_TRAIN24_TEST12_V1",
-  "full_mock_validation": {
-    "episodes": 144,
-    "frozen_policy_global_states": 3,
-    "frozen_policy_hc_groups": 9,
-    "frozen_policy_hd_groups": 8,
-    "frozen_policy_ot_groups": 15,
-    "frozen_policy_task_memories": 24,
-    "holdout_nonzero_combined_q_decisions": 48,
-    "holdout_nonzero_task_q_decisions": 0,
-    "holdout_optimized_decisions": 48,
-    "note": "Dry-run outputs validate orchestration/checkpoint/policy mechanics only; they are not scientific ASR results.",
-    "policy_updates": 288,
-    "resume_second_run_episodes": 144,
-    "resume_second_run_turns": 468,
-    "resume_second_run_updates": 288,
-    "turns": 468
+  "cross_version_runtime_artifacts": 0,
+  "dataset": {
+    "assignment_ids_sha256": "eeb0ba28fe5913b5fff7ec7a9fcc4b9a4142c041f065dec0f9a6e45023be34cc",
+    "hc_coverage": 9,
+    "hd_coverage": 8,
+    "mini_manifest_sha256": "1b85328fc57926e8d00fc112f0106bd2bdea48e588b0a8b2d51dd322d7ca588a",
+    "ot_coverage": 15,
+    "reserve_rows_selected": 0,
+    "selected_tasks": 24,
+    "source_rows": 500,
+    "source_task_bank_sha256": "62df773ce8c4a252bd23350fcd3a8e83fc670864efb0304fe8c65d21d3c7d6ff"
   },
-  "namespace": "CB16",
-  "package": "ChemBreak16_Full_Package_v16.0.0",
-  "validation": {
-    "cb12_partition_manifest_sha256": "8b4d3a8fc2969200bf192b7261832e2799bf45e81b49f4919e9a99f004806570",
-    "holdout_source_split": "Test1",
-    "holdout_task_count": 12,
-    "holdout_taxonomy_coverage": {
-      "hc": 9,
-      "hd": 8,
-      "ot": 12
+  "epsilon_schedule": [
+    0.3,
+    0.2,
+    0.15
+  ],
+  "experiment_flow": [
+    "baseline",
+    "learning_epoch_1",
+    "learning_epoch_2",
+    "learning_epoch_3",
+    "freeze",
+    "optimized"
+  ],
+  "experiment_revision": "CB16_HIER_MDP_MINI24_V1",
+  "full_mock": {
+    "episodes": 120,
+    "mock_summary": {
+      "baseline": {
+        "asr": 0.0,
+        "episodes": 24,
+        "mean_reward": -0.3,
+        "mean_turns": 1.0,
+        "status": "complete",
+        "successes": 0
+      },
+      "delta_asr_percentage_points": 0.0,
+      "learning_epoch_1": {
+        "asr": 0.0,
+        "episodes": 24,
+        "mean_reward": -1.2,
+        "mean_turns": 4.0,
+        "status": "complete",
+        "successes": 0
+      },
+      "learning_epoch_2": {
+        "asr": 0.0,
+        "episodes": 24,
+        "mean_reward": -1.2,
+        "mean_turns": 4.0,
+        "status": "complete",
+        "successes": 0
+      },
+      "learning_epoch_3": {
+        "asr": 0.0,
+        "episodes": 24,
+        "mean_reward": -1.2,
+        "mean_turns": 4.0,
+        "status": "complete",
+        "successes": 0
+      },
+      "optimized": {
+        "asr": 0.0,
+        "episodes": 24,
+        "mean_reward": -1.2,
+        "mean_turns": 4.0,
+        "status": "complete",
+        "successes": 0
+      }
     },
-    "notebook_code_cells_compile": true,
-    "notebook_copies_identical": true,
-    "package_validation_script": "passed",
-    "pytest": "21 passed",
-    "python_compileall": "passed",
-    "source_task_bank_sha256": "62df773ce8c4a252bd23350fcd3a8e83fc670864efb0304fe8c65d21d3c7d6ff",
-    "train_holdout_overlap": 0,
-    "train_source_split": "Train",
-    "train_task_count": 24,
-    "train_taxonomy_coverage": {
-      "hc": 9,
-      "hd": 8,
-      "ot": 15
-    }
+    "optimized_learned_support_rate": 1.0,
+    "optimized_nonzero_combined_q_rate": 1.0,
+    "policy_updates": 288,
+    "resume_episodes": 120,
+    "resume_policy_updates": 288,
+    "resume_turns": 408,
+    "turns": 408
   },
-  "version": "16.0.0"
+  "notebook": {
+    "all_code_cells_compile": true,
+    "cells": 26,
+    "count": 1,
+    "dependency_install_precedes_bundle_verification": true,
+    "path": "notebooks/chembreak16_Cloud_Notebook.ipynb",
+    "saved_outputs": 0
+  },
+  "notes": [
+    "The full mock uses deterministic safe mock roles/target; it validates orchestration, policy bookkeeping, checkpointing, reporting, and state reuse, not live cloud model behavior.",
+    "Authenticated Vertex + GPU + ChemDFM execution must be verified in the user cloud project.",
+    "Original task-bank assignment/matrix identifiers are preserved intentionally because renaming them would alter source identity and invalidate provenance hashes."
+  ],
+  "package": "ChemBreak16",
+  "package_version": "16.1.1",
+  "policy": {
+    "components": [
+      "global",
+      "hc",
+      "hd",
+      "ot",
+      "task"
+    ],
+    "global_states_in_full_mock": 3,
+    "hc_groups_in_full_mock": 9,
+    "hd_groups_in_full_mock": 8,
+    "ot_groups_in_full_mock": 15,
+    "schema_version": 3,
+    "task_memories_in_full_mock": 24
+  },
+  "python_compile": "passed",
+  "status": "validated_locally",
+  "tests": {
+    "failed": 0,
+    "passed": 23
+  },
+  "version_hygiene": {
+    "immutable_source_identifiers_preserved": true,
+    "notebook_count": 1,
+    "prior_version_artifact_filenames": 0,
+    "prior_version_runtime_paths": 0,
+    "stale_package_version_strings": 0
+  }
 }

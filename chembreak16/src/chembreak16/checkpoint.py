@@ -6,10 +6,11 @@ from .utils import utc_now
 
 class Store:
     def __init__(self,path):
-        self.path=Path(path); self.path.parent.mkdir(parents=True,exist_ok=True); self.db=sqlite3.connect(self.path); self.db.row_factory=sqlite3.Row
+        self.path=Path(path); self.path.parent.mkdir(parents=True,exist_ok=True)
+        self.db=sqlite3.connect(self.path); self.db.row_factory=sqlite3.Row
         self.db.executescript('''
         CREATE TABLE IF NOT EXISTS episodes(phase TEXT, epoch INTEGER, assignment_id TEXT, status TEXT, success INTEGER, turns INTEGER, total_reward REAL, terminal_reason TEXT, started_at TEXT, completed_at TEXT, PRIMARY KEY(phase,epoch,assignment_id));
-        CREATE TABLE IF NOT EXISTS turns(phase TEXT, epoch INTEGER, assignment_id TEXT, turn_index INTEGER, action_id TEXT, selection_mode TEXT, state_key TEXT, q_general REAL, q_task REAL, combined_q REAL, prompt TEXT, response TEXT, judge_json TEXT, decision_json TEXT, reward REAL, latency_seconds REAL, PRIMARY KEY(phase,epoch,assignment_id,turn_index));
+        CREATE TABLE IF NOT EXISTS turns(phase TEXT, epoch INTEGER, assignment_id TEXT, turn_index INTEGER, action_id TEXT, selection_mode TEXT, state_key TEXT, q_global REAL, q_task REAL, combined_q REAL, prompt TEXT, response TEXT, judge_json TEXT, decision_json TEXT, reward REAL, latency_seconds REAL, PRIMARY KEY(phase,epoch,assignment_id,turn_index));
         CREATE TABLE IF NOT EXISTS baseline_profiles(assignment_id TEXT PRIMARY KEY, response_class TEXT, goal_progress REAL, task_fidelity REAL, chemistry_relevance REAL, success INTEGER, judge_json TEXT, response TEXT);
         CREATE TABLE IF NOT EXISTS meta(key TEXT PRIMARY KEY, value TEXT);
         '''); self.db.commit()
@@ -28,17 +29,13 @@ class Store:
     def complete_episode(self,phase,epoch,aid,success,turns,total_reward,terminal):
         self.db.execute('UPDATE episodes SET status=?,success=?,turns=?,total_reward=?,terminal_reason=?,completed_at=? WHERE phase=? AND epoch=? AND assignment_id=?',('complete',int(success),turns,total_reward,terminal,utc_now(),phase,epoch,aid)); self.db.commit()
     def _turn_values(self,r):
-        return (
-            r['phase'],r['epoch'],r['assignment_id'],r['turn_index'],r['action_id'],r.get('selection_mode',''),r.get('state_key',''),
-            r.get('q_general',0.0),r.get('q_task',0.0),r.get('combined_q',0.0),r['prompt'],r['response'],
-            json.dumps(r['judge'],sort_keys=True),json.dumps(r.get('decision',{}),sort_keys=True),r['reward'],r.get('latency_seconds',0.0)
-        )
+        return (r['phase'],r['epoch'],r['assignment_id'],r['turn_index'],r['action_id'],r.get('selection_mode',''),r.get('state_key',''),r.get('q_global',0.0),r.get('q_task',0.0),r.get('combined_q',0.0),r['prompt'],r['response'],json.dumps(r['judge'],sort_keys=True),json.dumps(r.get('decision',{}),sort_keys=True),r['reward'],r.get('latency_seconds',0.0))
     def save_turn(self,**r):
         with self.db:
-            self.db.execute('''INSERT OR REPLACE INTO turns(phase,epoch,assignment_id,turn_index,action_id,selection_mode,state_key,q_general,q_task,combined_q,prompt,response,judge_json,decision_json,reward,latency_seconds) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)''',self._turn_values(r))
+            self.db.execute('''INSERT OR REPLACE INTO turns(phase,epoch,assignment_id,turn_index,action_id,selection_mode,state_key,q_global,q_task,combined_q,prompt,response,judge_json,decision_json,reward,latency_seconds) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)''',self._turn_values(r))
     def save_turn_with_policy(self,policy_snapshot: dict[str,Any],**r):
         with self.db:
-            self.db.execute('''INSERT OR REPLACE INTO turns(phase,epoch,assignment_id,turn_index,action_id,selection_mode,state_key,q_general,q_task,combined_q,prompt,response,judge_json,decision_json,reward,latency_seconds) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)''',self._turn_values(r))
+            self.db.execute('''INSERT OR REPLACE INTO turns(phase,epoch,assignment_id,turn_index,action_id,selection_mode,state_key,q_global,q_task,combined_q,prompt,response,judge_json,decision_json,reward,latency_seconds) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)''',self._turn_values(r))
             self.db.execute('INSERT OR REPLACE INTO meta(key,value) VALUES(?,?)',('training_policy_snapshot',self._encode(policy_snapshot)))
     def get_turns(self,phase,epoch,aid): return [dict(x) for x in self.db.execute('SELECT * FROM turns WHERE phase=? AND epoch=? AND assignment_id=? ORDER BY turn_index',(phase,epoch,aid)).fetchall()]
     def save_baseline(self,aid,response,judge):

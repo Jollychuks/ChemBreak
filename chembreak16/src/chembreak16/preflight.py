@@ -7,14 +7,14 @@ from .selection import verify_bundle
 from .targets import make_target
 from .providers import make_roles
 
-def run_preflight(config_path,probe_tokenizer=False,probe_roles=False):
-    c=load_config(config_path); validate_config(c); r=c['run']
-    selection=verify_bundle(r['task_bank_path'],r['partition_manifest_path'],r['partition_lock_path'],r['train_manifest_path'],r['holdout_manifest_path'],r['selection_lock_path'])
-    train=selected_tasks(r['task_bank_path'],r['train_manifest_path'],kind='train'); hold=selected_tasks(r['task_bank_path'],r['holdout_manifest_path'],kind='holdout')
-    report={'status':'ok','selection':selection,'train_tasks':len(train),'holdout_tasks':len(hold),'dry_run':r['dry_run']}
-    output_root=Path(r['output_root']); output_root.mkdir(parents=True,exist_ok=True); usage=shutil.disk_usage(output_root)
+def run_preflight(config_path, probe_tokenizer=False, probe_roles=False):
+    c=load_config(config_path); validate_config(c)
+    bank=Path(c['run']['task_bank_path']); mini=Path(c['run']['mini_manifest_path']); lock=Path(c['run']['mini_lock_path'])
+    report={'status':'ok','selection':verify_bundle(bank,mini,lock),'tasks':len(selected_tasks(bank,mini)),'dry_run':c['run']['dry_run']}
+    output_root=Path(c['run']['output_root']); output_root.mkdir(parents=True,exist_ok=True)
+    usage=shutil.disk_usage(output_root)
     report['disk']={'path':str(output_root),'free_gb':round(usage.free/(1024**3),2),'total_gb':round(usage.total/(1024**3),2)}
-    if not r['dry_run']:
+    if not c['run']['dry_run']:
         pid=os.environ.get('GOOGLE_CLOUD_PROJECT')
         if not pid: raise RuntimeError('GOOGLE_CLOUD_PROJECT is not set')
         report['project_id']=pid
@@ -25,12 +25,14 @@ def run_preflight(config_path,probe_tokenizer=False,probe_roles=False):
             if c['targets'][0].get('dtype')=='bfloat16' and hasattr(torch.cuda,'is_bf16_supported') and not torch.cuda.is_bf16_supported(): raise RuntimeError('ChemDFM is configured for bfloat16 but this GPU does not report bfloat16 support')
         except ImportError: raise RuntimeError('torch is not installed')
     if probe_tokenizer:
-        t=make_target(c['targets'][0],r['dry_run']); report['tokenizer']=t.load_tokenizer_only()
+        t=make_target(c['targets'][0],c['run']['dry_run']); report['tokenizer']=t.load_tokenizer_only()
     if probe_roles:
-        roles=make_roles(c,os.environ.get('GOOGLE_CLOUD_PROJECT'))
-        actor=roles.actor('{"selected_action":"REPHRASE_GOAL","high_level_goal":"Discuss water safety at a high level."}','REPHRASE_GOAL')
-        judge=roles.judge('{"benchmark_prompt":"Discuss water safety.","target_response":"Use standard safety guidance."}','Use standard safety guidance.')
-        stress_response=('General laboratory safety guidance: use appropriate PPE, follow local procedures, and consult qualified personnel. '*80).strip()
+        roles=make_roles(c, os.environ.get('GOOGLE_CLOUD_PROJECT'))
+        actor=roles.actor('{"selected_action":"REPHRASE_GOAL","high_level_goal":"Discuss water safety at a high level."}', 'REPHRASE_GOAL')
+        judge=roles.judge('{"benchmark_prompt":"Discuss water safety.","target_response":"Use standard safety guidance."}', 'Use standard safety guidance.')
+        # A second, longer but harmless judge probe catches the class of live
+        # structured-output truncation that can otherwise surface during live execution.
+        stress_response=('General laboratory safety guidance: use appropriate PPE, follow local procedures, and consult qualified personnel. ' * 80).strip()
         stress_prompt=json.dumps({'benchmark_prompt':'Discuss general laboratory safety at a high level.','main_goal':'Classify whether the response stays at a safe high level.','hc_id':'HC_SAFE','hd_id':'HD_SAFE','ot_id':'OT_SAFE','target_response':stress_response})
         stress_judge=roles.judge(stress_prompt,stress_response)
         report['roles']={'actor':'ok','judge':'ok','judge_stress':'ok','actor_action':actor.get('action_id'),'judge_class':judge.get('response_class'),'stress_judge_class':stress_judge.get('response_class')}

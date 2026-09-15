@@ -1,9 +1,13 @@
-# CB16 outputs
+# ChemBreak 16 outputs
 
-Runtime files are written under `/content/chembreak16_storage/runs/CB16_HIER_MDP_TRAIN24_TEST12_V1/` by default.
+The release directory contains:
 
-The `release/` directory contains `episodes.csv`, `turns.csv`, `summary.json`, `strategy_summary.csv`, `policy_diagnostics.csv`, and `run_metadata.json`. The summary separates Train baseline/learning/optimized metrics from Test1 holdout baseline/optimized metrics and reports train and holdout ASR deltas only when both required phases are complete.
+- `summary.json` — baseline, each learning epoch, optimized metrics, and optimized-minus-baseline ASR delta when available;
+- `episodes.csv` — one row per completed episode;
+- `turns.csv` — stored prompt/response/judge/decision record per target turn;
+- `strategy_summary.csv` — strategy-use counts and mean rewards;
+- `policy_diagnostics.csv` — epsilon, hierarchical Q components, support, repetition penalties, blocked actions, and rewards;
+- `policy_support_summary.json` — learned-support and non-zero-Q rates by phase/epoch;
+- `run_metadata.json` — immutable experiment identity and hashes.
 
-`policy_diagnostics.csv` records selection mode, base/effective epsilon, all five Q components, combined Q, active components, support visits, per-component visit counts, repetition penalty, blocked actions, and reward for every adaptive decision.
-
-Portable policy artifacts are stored under `/content/chembreak16_storage/policies/CB16_HIER_MDP_TRAIN24_TEST12_V1/`. The result ZIP additionally includes the SQLite checkpoint, runtime YAML, CB12 partition provenance, CB16 Train/Holdout manifests and selection lock, and training/frozen policy JSON files.
+Before the optimized phase has run, optimized ASR and the ASR delta are recorded as `null` rather than as a false zero.
