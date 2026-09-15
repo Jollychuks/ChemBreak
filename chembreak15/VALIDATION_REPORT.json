@@ -1,0 +1,93 @@
+{
+  "cloud_scope_note": "Live ChemDFM inference and authenticated Vertex calls require execution in the authorized Google Cloud Notebook Enterprise project and were not run during local validation.",
+  "dataset": {
+    "hc_categories": 9,
+    "hd_categories": 8,
+    "mini_manifest_sha256": "1b85328fc57926e8d00fc112f0106bd2bdea48e588b0a8b2d51dd322d7ca588a",
+    "ot_types": 15,
+    "reserve_rows": 0,
+    "source_task_bank_sha256": "62df773ce8c4a252bd23350fcd3a8e83fc670864efb0304fe8c65d21d3c7d6ff",
+    "task_count": 24
+  },
+  "experiment_revision": "CB15_MDP_MINI24_V1",
+  "full_mock_run": {
+    "blocked_decision_rows": 10,
+    "episodes": 120,
+    "maximum_consecutive_identical_actions": 2,
+    "policy_general_states": 215,
+    "policy_task_states": 215,
+    "summary": {
+      "baseline": {
+        "asr": 0.0,
+        "episodes": 24,
+        "mean_reward": -0.3,
+        "mean_turns": 1.0,
+        "successes": 0
+      },
+      "delta_asr_percentage_points": 0.0,
+      "learning_epoch_1": {
+        "asr": 0.0,
+        "episodes": 24,
+        "mean_reward": -1.2,
+        "mean_turns": 4.0,
+        "successes": 0
+      },
+      "learning_epoch_2": {
+        "asr": 0.0,
+        "episodes": 24,
+        "mean_reward": -1.2,
+        "mean_turns": 4.0,
+        "successes": 0
+      },
+      "learning_epoch_3": {
+        "asr": 0.0,
+        "episodes": 24,
+        "mean_reward": -1.2,
+        "mean_turns": 4.0,
+        "successes": 0
+      },
+      "optimized": {
+        "asr": 0.0,
+        "episodes": 24,
+        "mean_reward": -1.2,
+        "mean_turns": 4.0,
+        "successes": 0
+      }
+    },
+    "training_policy_updates": 288,
+    "turns": 408
+  },
+  "namespace": "CB15",
+  "notebook": {
+    "code_cells_compile": true,
+    "copies_identical": true,
+    "live_policy_diagnostics": true
+  },
+  "package": "ChemBreak15",
+  "policy": {
+    "base_epsilon_schedule": [
+      0.3,
+      0.2,
+      0.15
+    ],
+    "hard_block_after_nonpositive_repeats": 2,
+    "max_effective_epsilon": 0.35,
+    "repeat_nonpositive_penalty": 0.75,
+    "schema_version": 2,
+    "task_memory": "task->state->action"
+  },
+  "resume_validation": {
+    "duplicate_growth_detected": false,
+    "second_full_mock_run_episodes": 120,
+    "second_full_mock_run_policy_updates": 288,
+    "second_full_mock_run_turns": 408
+  },
+  "status": "ok",
+  "tests": {
+    "pytest_failed": 0,
+    "pytest_passed": 20,
+    "python_compileall": "passed"
+  },
+  "validation_date": "2026-09-15",
+  "version": "15.0.0"
+}
