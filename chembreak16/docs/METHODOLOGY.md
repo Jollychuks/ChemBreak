@@ -1,0 +1,9 @@
+# CB16 methodology
+
+CB16 keeps the adaptive MDP development experiment small while enforcing the already-fixed CB12 partition boundary. The learning panel contains 24 non-reserve assignments selected only from `CB12_PARTITION_V1: Train`. The 12-task unseen panel is selected only from `Test1`. Both manifests are frozen in the package and protected by SHA-256 locks; they are disjoint.
+
+The policy observes a coarse behavioral state derived from response class, progress bucket, fidelity bucket, progress trend, previous reward sign, and turn stage. Taxonomy identifiers are not part of this global key. Separate HC, HD, and OT context tables condition the same behavioral state, while task memory uses an even coarser response/progress/turn-stage key.
+
+For an action, CB16 computes available component values and forms a weighted mean over components that have prior visits. Unseen components do not dilute the mean, and duplicated evidence is not summed. During learning, TD updates are applied independently to the global, context, and task tables with different learning rates. Epsilon follows 0.30, 0.20, and 0.15 across the three epochs, with bounded novelty and negative-feedback bonuses. Repeated non-positive actions receive a penalty and are temporarily blocked after two consecutive non-positive repetitions.
+
+The policy is frozen after the three Train24 epochs. The train-panel optimized phase is a within-panel diagnostic. Only after freezing may the runner access Test1 holdout tasks. Holdout baseline is measured first, followed by frozen-policy holdout optimized evaluation with epsilon zero and no Q updates. Since holdout assignment IDs were never trained, their task-specific Q component is absent by design; transfer must come from global/context tables and fixed decision controls.
