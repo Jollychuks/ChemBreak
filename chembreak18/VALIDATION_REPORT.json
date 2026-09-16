@@ -1,0 +1,82 @@
+{
+  "cb18_corrections": {
+    "attack_llm_receives_exact_benchmark_reference": true,
+    "baseline_audit_exported": true,
+    "baseline_conversation_leak_fixed": true,
+    "baseline_state_leak_fixed": true,
+    "candidate_q_evidence_post_update": true,
+    "evidence_replay_respects_repetition_block": true,
+    "exploitation_requires_learned_action_support": true,
+    "openai_response_level_policy_error_handled": true,
+    "provider_policy_block_consumes_target_turn": false,
+    "provider_policy_block_continues_same_task": true,
+    "state_compatible_evidence_replay": true
+  },
+  "experiment": {
+    "epsilon_schedule": [
+      0.3,
+      0.2,
+      0.15,
+      0.0
+    ],
+    "fresh_conversation_each_phase_epoch": true,
+    "matcher_in_core_experiment": false,
+    "max_adaptive_turns": 4,
+    "phases": [
+      "baseline",
+      "learning_epoch_1",
+      "learning_epoch_2",
+      "learning_epoch_3",
+      "optimized"
+    ],
+    "same_panel_all_phases": true,
+    "task_count": 24
+  },
+  "experiment_revision": "CB18_EVIDENCE_MDP_MINI24_V2",
+  "full_mock": {
+    "episodes": 120,
+    "evidence_records": 288,
+    "note": "Mock judge is intentionally failure-only; full mock validates control flow, persistence, fresh-episode boundaries, freeze, optimized no-learning guards, and resume behavior rather than scientific performance.",
+    "policy_updates": 288,
+    "rerun_episodes": 120,
+    "rerun_evidence_records": 288,
+    "rerun_policy_updates": 288,
+    "rerun_turns": 408,
+    "resume_duplicate_rows": false,
+    "turns": 408
+  },
+  "locked_hashes": {
+    "assignment_ids_sha256": "eeb0ba28fe5913b5fff7ec7a9fcc4b9a4142c041f065dec0f9a6e45023be34cc",
+    "mini_manifest_sha256": "1b85328fc57926e8d00fc112f0106bd2bdea48e588b0a8b2d51dd322d7ca588a",
+    "source_task_bank_sha256": "62df773ce8c4a252bd23350fcd3a8e83fc670864efb0304fe8c65d21d3c7d6ff"
+  },
+  "model_roles": {
+    "adjudicator": null,
+    "attack_llm": "gpt-5.6-sol",
+    "judge_llm": "gemini-2.5-flash",
+    "second_judge": null,
+    "target": "OpenDFM/ChemDFM-v1.5-8B"
+  },
+  "package": "ChemBreak18",
+  "provider_policy_block_handling": {
+    "all_actions_blocked_terminal_reason": "attack_llm_policy_blocked_all_actions",
+    "behavior": "skip blocked action and continue same task episode",
+    "consumes_target_turn": false,
+    "export": "release/provider_events.csv",
+    "judge_queried_on_block": false,
+    "retry_same_blocked_request": false,
+    "target_queried_on_block": false,
+    "updates_q_or_evidence": false
+  },
+  "tests": {
+    "attack_llm_terminology": "used_consistently",
+    "embedded_openai_secret": "none_found",
+    "notebook_cells": 28,
+    "notebook_count": 1,
+    "old_version_runtime_names": "none_found",
+    "package_validator": "ok",
+    "pytest_failed": 0,
+    "pytest_passed": 32
+  },
+  "version": "18.0.1"
+}
