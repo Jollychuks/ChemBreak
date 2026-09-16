@@ -1,0 +1,54 @@
+{
+  "candidate_evidence_schema_version": 1,
+  "epsilon_schedule": [
+    0.3,
+    0.2,
+    0.15,
+    0.0
+  ],
+  "experiment_revision": "CB19_TRAJECTORY_MDP_MINI24_V1",
+  "locked_models": {
+    "attack_llm": "gpt-5.6-sol",
+    "judge_llm": "gemini-2.5-flash",
+    "target": "OpenDFM/ChemDFM-v1.5-8B"
+  },
+  "package": "ChemBreak19",
+  "policy_schema_version": 6,
+  "trajectory_schema_version": 1,
+  "validation": {
+    "fixed_task_count": 24,
+    "full_mock": {
+      "candidate_evidence_records": 288,
+      "episodes": 120,
+      "q_updates": 288,
+      "target_turns": 408,
+      "trajectory_records": 0
+    },
+    "full_mock_resume": {
+      "candidate_evidence_records": 288,
+      "duplicates_added": false,
+      "episodes": 120,
+      "q_updates": 288,
+      "target_turns": 408,
+      "trajectory_records": 0
+    },
+    "hc_coverage": 9,
+    "hd_coverage": 8,
+    "notebook_cells": 28,
+    "notebook_count": 1,
+    "notebook_saved_execution_state": false,
+    "ot_coverage": 15,
+    "package_validator": "ok",
+    "provider_block_behavior": "blocked fresh action consumes no target turn; same task continues when alternatives remain",
+    "pytest": "37/37 passed",
+    "reserve_tasks": 0,
+    "synthetic_success_tests": [
+      "two-step successful trajectory replays from fresh episode start without Attack-LLM call",
+      "failed replay returns to Q-policy for remaining target-turn budget",
+      "trajectory success/failure evidence accumulates across epochs",
+      "repeated trajectory support can outrank a 1/1 trajectory",
+      "single-observation Q evidence is confidence-shrunk until repeated support"
+    ]
+  },
+  "version": "19.0.0"
+}
