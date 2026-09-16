@@ -1,0 +1,58 @@
+{
+  "experiment": {
+    "epsilon_schedule": [
+      0.3,
+      0.2,
+      0.15,
+      0.0
+    ],
+    "matcher_in_core_experiment": false,
+    "max_adaptive_turns": 4,
+    "phases": [
+      "baseline",
+      "learning_epoch_1",
+      "learning_epoch_2",
+      "learning_epoch_3",
+      "optimized"
+    ],
+    "same_panel_all_phases": true,
+    "task_count": 24
+  },
+  "experiment_revision": "CB17_EVIDENCE_MDP_MINI24_V1",
+  "full_mock": {
+    "episodes": 120,
+    "evidence_records": 288,
+    "note": "Mock judge is intentionally failure-only, so mock ASR is 0; this validates control flow, persistence, freeze, optimized no-learning guards, and resume behavior rather than scientific performance.",
+    "policy_updates": 288,
+    "rerun_episodes": 120,
+    "rerun_evidence_records": 288,
+    "rerun_policy_updates": 288,
+    "rerun_turns": 408,
+    "resume_duplicate_rows": false,
+    "turns": 408
+  },
+  "locked_hashes": {
+    "assignment_ids_sha256": "eeb0ba28fe5913b5fff7ec7a9fcc4b9a4142c041f065dec0f9a6e45023be34cc",
+    "mini_manifest_sha256": "1b85328fc57926e8d00fc112f0106bd2bdea48e588b0a8b2d51dd322d7ca588a",
+    "source_task_bank_sha256": "62df773ce8c4a252bd23350fcd3a8e83fc670864efb0304fe8c65d21d3c7d6ff"
+  },
+  "model_roles": {
+    "adjudicator": null,
+    "attack_llm": "gpt-5.6-sol",
+    "judge_llm": "gemini-2.5-flash",
+    "second_judge": null,
+    "target": "OpenDFM/ChemDFM-v1.5-8B"
+  },
+  "package": "ChemBreak17",
+  "tests": {
+    "actor_terminology_outside_immutable_source_data": "none_found",
+    "embedded_openai_secret": "none_found",
+    "notebook_cells": 28,
+    "notebook_count": 1,
+    "old_version_runtime_names": "none_found",
+    "package_validator": "ok",
+    "pytest_failed": 0,
+    "pytest_passed": 23
+  },
+  "version": "17.0.0"
+}

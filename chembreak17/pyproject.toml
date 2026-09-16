@@ -1,0 +1,17 @@
+[build-system]
+requires=["setuptools>=68","wheel"]
+build-backend="setuptools.build_meta"
+
+[project]
+name="chembreak17"
+version="17.0.0"
+description="ChemBreak 17 hierarchical adaptive MDP safety-evaluation harness with persistent evidence memory"
+requires-python=">=3.10"
+dependencies=["pandas>=2.2,<3","PyYAML>=6,<7"]
+
+[tool.setuptools.packages.find]
+where=["src"]
+
+[tool.pytest.ini_options]
+pythonpath=["src"]
+testpaths=["tests"]
