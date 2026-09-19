@@ -1,0 +1,17 @@
+[build-system]
+requires=["setuptools>=68","wheel"]
+build-backend="setuptools.build_meta"
+
+[project]
+name="chembreak20"
+version="20.0.0"
+description="ChemBreak20 hierarchical MDP safety-evaluation harness with immutable task locks and abstract route memory"
+requires-python=">=3.10"
+dependencies=["pandas>=2.2,<3","PyYAML>=6,<7"]
+
+[tool.setuptools.packages.find]
+where=["src"]
+
+[tool.pytest.ini_options]
+pythonpath=["src"]
+testpaths=["tests"]
