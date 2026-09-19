@@ -1,5 +1,0 @@
-"""ChemBreak12."""
-
-__version__ = "12.0.0"
-RUN_NAMESPACE = "CB12"
-CHECKPOINT_PROTOCOL_VERSION = "12.0.0"
