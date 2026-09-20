@@ -1,0 +1,4 @@
+pandas>=2.2,<3
+PyYAML>=6.0,<7
+numpy>=1.26,<3
+openai>=1.100,<3
