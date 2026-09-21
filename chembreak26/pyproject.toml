@@ -1,0 +1,26 @@
+[build-system]
+requires=["setuptools==84.0.0","wheel==0.48.0"]
+build-backend="setuptools.build_meta"
+
+[project]
+name="chembreak26"
+version="26.0.0"
+description="ChemBreak26 fallback-judged replay-augmented adaptive MDP safety-evaluation harness"
+requires-python=">=3.10"
+dependencies=[
+  "google-auth==2.40.3",
+  "google-genai==2.24.0",
+  "openai==3.16.2",
+  "pandas==2.2.3",
+  "PyYAML==6.0.3",
+]
+
+[project.optional-dependencies]
+test=["pytest==9.1.1"]
+
+[tool.setuptools.packages.find]
+where=["src"]
+
+[tool.pytest.ini_options]
+pythonpath=["src"]
+testpaths=["tests"]
