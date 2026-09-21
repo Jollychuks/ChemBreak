@@ -2,7 +2,7 @@
 
 ChemBreak23 is an adaptive multi-turn red-teaming experiment for evaluating the safety behavior of chemistry language models. It uses a replay-augmented Markov Decision Process (MDP) to learn which reformulation strategies are most effective for each benchmark task and then evaluates the learned routes in fresh target-model conversations.
 
-The current experiment evaluates two target models:
+This research evaluates two target models:
 
 - **ChemDFM:** `OpenDFM/ChemDFM-v1.5-8B`
 - **ChemLLM:** `AI4Chem/ChemLLM-7B-Chat-1_5-SFT`
