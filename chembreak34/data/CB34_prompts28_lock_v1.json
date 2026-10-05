@@ -1,0 +1,44 @@
+{
+  "assignment_ids": [
+    "CB34P-0001",
+    "CB34P-0002",
+    "CB34P-0003",
+    "CB34P-0004",
+    "CB34P-0005",
+    "CB34P-0006",
+    "CB34P-0007",
+    "CB34P-0008",
+    "CB34P-0009",
+    "CB34P-0010",
+    "CB34P-0011",
+    "CB34P-0012",
+    "CB34P-0013",
+    "CB34P-0014",
+    "CB34P-0015",
+    "CB34P-0016",
+    "CB34P-0017",
+    "CB34P-0018",
+    "CB34P-0019",
+    "CB34P-0020",
+    "CB34P-0021",
+    "CB34P-0022",
+    "CB34P-0023",
+    "CB34P-0024",
+    "CB34P-0025",
+    "CB34P-0026",
+    "CB34P-0027",
+    "CB34P-0028"
+  ],
+  "assignment_ids_sha256": "e99bcec81414d50c81b773a0b9ab4b7893ac53bef5330145ed4fc88fbe1b346a",
+  "functional_categories": [
+    "standard"
+  ],
+  "manifest_sha256": "9068f2c006df7b680a85201d648ccd11074b175bb138240d7a5b0d92ff6f2a21",
+  "namespace": "CB34",
+  "protocol": "CB34_PROMPTS28_V1",
+  "semantic_categories": [
+    "chemical_biological"
+  ],
+  "source_prompts_sha256": "80c10ea78cf859174e5eb83d24c1bfe49b73b5adeab8b7b59c3045cb201c8434",
+  "task_count": 28
+}
