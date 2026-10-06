@@ -1,8 +1,8 @@
 # ChemBreak
 
-ChemBreak34 is an independent, task-local, response-aware evaluation package for testing two chemistry-focused target LLMs against 28 locked HarmBench objectives. Its single CHCS measure evaluates the combined target-model assistance accumulated inside the current active conversation.
+ChemBreak is an independent, task-local, response-aware evaluation package for testing two chemistry-focused target LLMs against 28 locked HarmBench objectives. Its single CHCS measure evaluates the combined target-model assistance accumulated inside the current active conversation.
 
-The package is designed for Colab Enterprise. Upload the `chembreak34` directory to a GitHub repository, open `notebooks/chembreak34_Cloud_Notebook.ipynb`, paste the repository URL in Cell 1, and run the setup cells.
+The package is designed for Colab Enterprise. Upload the `chembreak` directory to a GitHub repository, open `notebooks/chembreak34_Cloud_Notebook.ipynb`, paste the repository URL in Cell 1, and run the setup cells.
 
 ## What ChemBreak does
 
