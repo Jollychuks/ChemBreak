@@ -1,0 +1,23 @@
+{
+  "test_environment": "offline local Python, mock roles only",
+  "live_model_or_judge_api_calls": 0,
+  "results": {
+    "normal_19_query_1_task_dry_run": "PASS",
+    "ofs_policy_block_stops_task_without_reward": "PASS",
+    "rhs_policy_block_preserves_valid_ofs": "PASS",
+    "bio_policy_error_classification": "PASS",
+    "unsupported_rhs_increase_after_noncontributing_refusal": "PASS",
+    "refusal_plus_assistance_not_naively_classified": "PASS",
+    "new_context_ignores_previous_context_score": "PASS",
+    "high_rhs_evidence_and_technical_validation_review": "PASS",
+    "cumulative_ofs_regression_creates_quality_hold": "PASS",
+    "ofs5_provisional_review_queue": "PASS",
+    "output_reports_distinguish_provisional_and_verified": "PASS",
+    "python_compileall": "PASS"
+  },
+  "limitations": [
+    "No reduction in provider bio_policy restrictions has been established.",
+    "No chemical or biological correctness evaluation has been validated.",
+    "No real ChemDFM or ChemLLM target inference was run for this package."
+  ]
+}
