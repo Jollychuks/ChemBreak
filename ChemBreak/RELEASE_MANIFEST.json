@@ -1,0 +1,193 @@
+{
+  "project": "ChemBreak",
+  "package_version": "1.3.0",
+  "dataset_sha256": "80c10ea78cf859174e5eb83d24c1bfe49b73b5adeab8b7b59c3045cb201c8434",
+  "file_count_excluding_manifest": 37,
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 12118,
+      "sha256": "343456f924fd973be795ba817159aace7b75185dcce4f5a84fbf58e0f9193864"
+    },
+    {
+      "path": "configs/config.gpt.yaml",
+      "bytes": 4273,
+      "sha256": "e23b79e9a0c1e29ef11b06e8300728f81f7c034800e524ae774ee71fbe0585fb"
+    },
+    {
+      "path": "configs/config.qwen.yaml",
+      "bytes": 4498,
+      "sha256": "d03182f16ebfc628bb184e352d34930ab7a7b690cc289c3a3dc4f897c12368a7"
+    },
+    {
+      "path": "data/calibration_reference_template.csv",
+      "bytes": 83,
+      "sha256": "6c1737d405211115761eb2e4a915444e66e6a8ed3d6d53e66fc9651d12a65eb5"
+    },
+    {
+      "path": "data/prompts.csv",
+      "bytes": 3528,
+      "sha256": "80c10ea78cf859174e5eb83d24c1bfe49b73b5adeab8b7b59c3045cb201c8434"
+    },
+    {
+      "path": "data/prompts28_lock.json",
+      "bytes": 1004,
+      "sha256": "2ef8f3cdfe2b16d7ab7782e5b58e67e05d40f43c371f9841cc2ccaeb84180c8f"
+    },
+    {
+      "path": "data/prompts28_manifest.csv",
+      "bytes": 3183,
+      "sha256": "9068f2c006df7b680a85201d648ccd11074b175bb138240d7a5b0d92ff6f2a21"
+    },
+    {
+      "path": "notebooks/ChemBreak_Colab.ipynb",
+      "bytes": 20243,
+      "sha256": "2badfe53e06cbb34b230a1348a016f6888bb6294473075b1d693e2591167dec2"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 566,
+      "sha256": "b74d92a997faf4818801ed9e65738b5b8bb936666eeac5cde1d3afe2e084bebb"
+    },
+    {
+      "path": "requirements-cloud-ml.txt",
+      "bytes": 249,
+      "sha256": "f17560f2621fc2209ca3452aa1454780673f10f34ac63051066586f578330e41"
+    },
+    {
+      "path": "src/chembreak/__init__.py",
+      "bytes": 105,
+      "sha256": "a37d0528d62d73ed3fab2d130612aff89bc0e43a1613fc9fb8feffec01090b07"
+    },
+    {
+      "path": "src/chembreak/__main__.py",
+      "bytes": 61,
+      "sha256": "3129adff95e0f38b87ab34cddfc27082c7892bcaec267ff5d40f160fdf55b44a"
+    },
+    {
+      "path": "src/chembreak/calibration.py",
+      "bytes": 2694,
+      "sha256": "d967f35b64c85e614cbfd1539ecbfe75bd3d5fe8277c4f4d76c3a0b7510c544a"
+    },
+    {
+      "path": "src/chembreak/checkpoint.py",
+      "bytes": 12865,
+      "sha256": "eccf73f0f9a7ef0a95f9138fe28923791a53e59d1447928c15bc90a074ec2027"
+    },
+    {
+      "path": "src/chembreak/cli.py",
+      "bytes": 3792,
+      "sha256": "8678ca8fa7be814078647cf1a97934bc4f421b5eceecb05381e10cd8ccaaac0f"
+    },
+    {
+      "path": "src/chembreak/config.py",
+      "bytes": 7258,
+      "sha256": "c2802ece34cfa164d2361e08e762790b0861f6e7ca36f1c8c749cc6626f6fa6a"
+    },
+    {
+      "path": "src/chembreak/constants.py",
+      "bytes": 1506,
+      "sha256": "be0cc18ee8291d66dc53459228959cbf211a731156b999431a63b997fda5877c"
+    },
+    {
+      "path": "src/chembreak/dataset.py",
+      "bytes": 3204,
+      "sha256": "a35e1ae860a37b6dda4eefda364a851538ae7ba19fba8994c4f71d131ed17cf6"
+    },
+    {
+      "path": "src/chembreak/metrics.py",
+      "bytes": 12661,
+      "sha256": "95f7a5363102ee968d78fa9299e133daa0a2bf4a97a3bd4fad94a2da79ddd7df"
+    },
+    {
+      "path": "src/chembreak/policy.py",
+      "bytes": 6395,
+      "sha256": "c7ce05dbbe9eca280401e436d2fc92c78353ed56499d64b35b3ea17f6db100e7"
+    },
+    {
+      "path": "src/chembreak/preflight.py",
+      "bytes": 4973,
+      "sha256": "24d09a604315ac649b9cdf5c1bea14606a1a6f182b687563cfb243159230bafa"
+    },
+    {
+      "path": "src/chembreak/prompts.py",
+      "bytes": 11530,
+      "sha256": "5d43fa2834175a9c80988b4b478efc7386cf9147373d7d3afef52042f7ae7eb4"
+    },
+    {
+      "path": "src/chembreak/providers.py",
+      "bytes": 23512,
+      "sha256": "473dce8d66e696bbda1f44cf8ced7e3aee3fbc69a7c42f90702073f2d376a073"
+    },
+    {
+      "path": "src/chembreak/reporting.py",
+      "bytes": 15382,
+      "sha256": "4304b22ebc4990d84012bdd89d773fed2519e003f05cbbedfaa9bf54a95466cd"
+    },
+    {
+      "path": "src/chembreak/runner.py",
+      "bytes": 50180,
+      "sha256": "24d97458c5bb39f3ccf1422860c43cffd7cf7170403ba420c317606fbbf08932"
+    },
+    {
+      "path": "src/chembreak/scoring.py",
+      "bytes": 7546,
+      "sha256": "d626827b138191ad1bec0a27f2810577acfc8ddb95dd75fba5b66de64efd0bc9"
+    },
+    {
+      "path": "src/chembreak/selection.py",
+      "bytes": 1760,
+      "sha256": "937124f6ba83f6172a1a1864c385fcb4f25a2c76360d4fac8752218adde609ef"
+    },
+    {
+      "path": "src/chembreak/state.py",
+      "bytes": 11485,
+      "sha256": "55019139ce422108c8da7c1698aee2894ff81954db4a91f83919d625eea3a345"
+    },
+    {
+      "path": "src/chembreak/targets.py",
+      "bytes": 6260,
+      "sha256": "6d189e04dc8c03f6f879d0fcc7fd5d2baacde3c024c1afd165d3ce18ff157f87"
+    },
+    {
+      "path": "src/chembreak/utils.py",
+      "bytes": 2177,
+      "sha256": "9b18d34a923e2d8ebf90db41029f4d51214a2e3f500a2b824c6feb6382c1ece1"
+    },
+    {
+      "path": "tests/test_checkpoint.py",
+      "bytes": 1296,
+      "sha256": "5b0ad289552d2f478a4f3fe2eb20ba585600cfd604c17594f87e5810c4fb1628"
+    },
+    {
+      "path": "tests/test_config_and_dataset.py",
+      "bytes": 2619,
+      "sha256": "bca6567386ffbc567c92c5c45dd224798b384c588fe5cb20a173eff1fa20f6a4"
+    },
+    {
+      "path": "tests/test_context_and_state.py",
+      "bytes": 8762,
+      "sha256": "e1563fff60fe099339d31695636aa126f3e2f66e9369e5a9b3cf9ab7f4898e95"
+    },
+    {
+      "path": "tests/test_error_handling.py",
+      "bytes": 1251,
+      "sha256": "579142341f2dd911630cc6f68845b6d08c3620cb6c9ea5e99b4547f38f5d2d91"
+    },
+    {
+      "path": "tests/test_package_boundaries.py",
+      "bytes": 605,
+      "sha256": "7e1b8bc15e9a121527d76307d6c4398fca612f79c016512e731b5c90dea495f7"
+    },
+    {
+      "path": "tests/test_reporting.py",
+      "bytes": 1404,
+      "sha256": "25d953dc19209a4a8b68468d8ff713abd2670a6456f30db483b52f3400c4eb29"
+    },
+    {
+      "path": "tests/test_scoring.py",
+      "bytes": 3822,
+      "sha256": "52f97ce4c19ba011d313393a8f3d9ba243d67ce8adc9d00030efdaf3de6107cd"
+    }
+  ]
+}
