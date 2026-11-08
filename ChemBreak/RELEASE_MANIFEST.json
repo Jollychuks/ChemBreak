@@ -1,0 +1,241 @@
+{
+  "project": "ChemBreak",
+  "package_version": "1.5.0",
+  "dataset_profiles": {
+    "prompts28": {
+      "task_count": 28,
+      "protocol": "PROMPTS28_LOCKED_V1",
+      "source_prompts_sha256": "80c10ea78cf859174e5eb83d24c1bfe49b73b5adeab8b7b59c3045cb201c8434",
+      "manifest_sha256": "9068f2c006df7b680a85201d648ccd11074b175bb138240d7a5b0d92ff6f2a21"
+    },
+    "chemharm500": {
+      "task_count": 500,
+      "protocol": "CHEMHARM500_LOCKED_V1",
+      "source_prompts_sha256": "463ce2ed2ee271b7ab5d9fd2608983c045826cb662512f65d12c1323d0fdc961",
+      "manifest_sha256": "72fa486f6bda5c19c04dd9b83fd9e4e387a25d8f4ca5dff23df50ef45232dee9"
+    }
+  },
+  "file_count_excluding_manifest": 44,
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 17662,
+      "sha256": "d7cc1be8b12e8823ec7f07df96b464a9b62423d30ab1c483cd6ac137880a7a29"
+    },
+    {
+      "path": "configs/config.gpt.yaml",
+      "bytes": 5238,
+      "sha256": "0d1485ee7a73bf74611b2dd8069dfc509724621458457ddfdaf6ed861ad41a46"
+    },
+    {
+      "path": "configs/config.qwen.yaml",
+      "bytes": 5463,
+      "sha256": "fd1bed17d8e8a6dc96c042dd278b6f36429f050d9c4eea991adf7f95941c8480"
+    },
+    {
+      "path": "data/calibration_reference_template.csv",
+      "bytes": 83,
+      "sha256": "6c1737d405211115761eb2e4a915444e66e6a8ed3d6d53e66fc9651d12a65eb5"
+    },
+    {
+      "path": "data/chemharm500_lock.json",
+      "bytes": 9526,
+      "sha256": "be91da0349e7b5cb1544161f0e70b66577b0b57bdfd991a346f17f833122160b"
+    },
+    {
+      "path": "data/chemharm500_manifest.csv",
+      "bytes": 74353,
+      "sha256": "72fa486f6bda5c19c04dd9b83fd9e4e387a25d8f4ca5dff23df50ef45232dee9"
+    },
+    {
+      "path": "data/chemharm500_tasks.xlsx",
+      "bytes": 73116,
+      "sha256": "463ce2ed2ee271b7ab5d9fd2608983c045826cb662512f65d12c1323d0fdc961"
+    },
+    {
+      "path": "data/prompts.csv",
+      "bytes": 3528,
+      "sha256": "80c10ea78cf859174e5eb83d24c1bfe49b73b5adeab8b7b59c3045cb201c8434"
+    },
+    {
+      "path": "data/prompts28_lock.json",
+      "bytes": 1038,
+      "sha256": "37d05ec2681515f0496ebc52a9b32d80a10886df1328d77caf5dfcd877e32759"
+    },
+    {
+      "path": "data/prompts28_manifest.csv",
+      "bytes": 3183,
+      "sha256": "9068f2c006df7b680a85201d648ccd11074b175bb138240d7a5b0d92ff6f2a21"
+    },
+    {
+      "path": "notebooks/ChemBreak_Colab.ipynb",
+      "bytes": 21379,
+      "sha256": "3339f2ac30863e5a0276b250a8a63e978823ffca997a79776c80ad1b852c44f4"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 587,
+      "sha256": "720187c0b709671dacb724ffffa0255a90a780cb2438916cc17b1ff17b2af881"
+    },
+    {
+      "path": "requirements-cloud-ml.txt",
+      "bytes": 265,
+      "sha256": "18a30bcf0d7973d16f148790aab7775c41e1e78f12b100df0944ce44662b27e5"
+    },
+    {
+      "path": "scripts/build_chemharm500_lock.py",
+      "bytes": 2468,
+      "sha256": "aa4588b0cba260ec2d89adec6ef6898651dac6484f8e7160158563c164a806f2"
+    },
+    {
+      "path": "scripts/build_release_manifest.py",
+      "bytes": 1722,
+      "sha256": "0008ad366b49cdf1ded16ad95aa45bbbf4fef2124485530aa01f171898e28a03"
+    },
+    {
+      "path": "src/chembreak/__init__.py",
+      "bytes": 105,
+      "sha256": "af4ab189b8594efedb49fa42807f82c037bb5991b235707a42749e3d8f20fde5"
+    },
+    {
+      "path": "src/chembreak/__main__.py",
+      "bytes": 61,
+      "sha256": "3129adff95e0f38b87ab34cddfc27082c7892bcaec267ff5d40f160fdf55b44a"
+    },
+    {
+      "path": "src/chembreak/calibration.py",
+      "bytes": 2694,
+      "sha256": "d967f35b64c85e614cbfd1539ecbfe75bd3d5fe8277c4f4d76c3a0b7510c544a"
+    },
+    {
+      "path": "src/chembreak/checkpoint.py",
+      "bytes": 12865,
+      "sha256": "eccf73f0f9a7ef0a95f9138fe28923791a53e59d1447928c15bc90a074ec2027"
+    },
+    {
+      "path": "src/chembreak/cli.py",
+      "bytes": 5028,
+      "sha256": "b4080e3ffa5c326db5f990edc136fa1485b13d1e1413862b9353a450d4e875d4"
+    },
+    {
+      "path": "src/chembreak/config.py",
+      "bytes": 9431,
+      "sha256": "070496085bba7a6d08c5dd2863caa16c5e2a1e6ebb977d5239065c9203fced97"
+    },
+    {
+      "path": "src/chembreak/constants.py",
+      "bytes": 3107,
+      "sha256": "dd77251c0d285296d0b873b7b1e94a2ebf15fd7d1684ee37359edf8975810bbf"
+    },
+    {
+      "path": "src/chembreak/dataset.py",
+      "bytes": 7361,
+      "sha256": "405bce610deeaedfc3c518277ec904f8ce4004ea0b03a91771779968ef25446c"
+    },
+    {
+      "path": "src/chembreak/metrics.py",
+      "bytes": 15178,
+      "sha256": "64e7420813bd55a891e1f8a1e51cc1ea84399a43b31b0694103bf4c9ad3971b4"
+    },
+    {
+      "path": "src/chembreak/policy.py",
+      "bytes": 7953,
+      "sha256": "d1a823a2fd49f93ec8d41efbc47f56cc71bbf4cf9e93f7b0757f5d95ed25c201"
+    },
+    {
+      "path": "src/chembreak/preflight.py",
+      "bytes": 5429,
+      "sha256": "a42235e2a3a4e6fd4073e98c065db33406ae881982298bd141a7fff104795de2"
+    },
+    {
+      "path": "src/chembreak/prompts.py",
+      "bytes": 19434,
+      "sha256": "9e30411219da9da562635ec35facc6c689f8a3cbaa437763f04f8a65ed3d0b47"
+    },
+    {
+      "path": "src/chembreak/providers.py",
+      "bytes": 29835,
+      "sha256": "dd3e5ce4472c273db884179906aee47e0e1e57956f1e6e5d4bb1f74531bccb34"
+    },
+    {
+      "path": "src/chembreak/reporting.py",
+      "bytes": 17479,
+      "sha256": "5937e2e20b53f488c7b12d062016eb57a7307763145206f6df497a364b793ded"
+    },
+    {
+      "path": "src/chembreak/runner.py",
+      "bytes": 57083,
+      "sha256": "c6d74a9e00e391d653b64dcf667aa3fe087d838f3839439f0626448a765406a8"
+    },
+    {
+      "path": "src/chembreak/scoring.py",
+      "bytes": 7546,
+      "sha256": "d626827b138191ad1bec0a27f2810577acfc8ddb95dd75fba5b66de64efd0bc9"
+    },
+    {
+      "path": "src/chembreak/selection.py",
+      "bytes": 1475,
+      "sha256": "21b4a961bf12f85d5771d86823db58340619948e8242b73ca189c4921d38f374"
+    },
+    {
+      "path": "src/chembreak/state.py",
+      "bytes": 11408,
+      "sha256": "90acb30432c2d507ba436d9196832d31ec803c13ab1a84b40415003194254d38"
+    },
+    {
+      "path": "src/chembreak/targets.py",
+      "bytes": 6260,
+      "sha256": "6d189e04dc8c03f6f879d0fcc7fd5d2baacde3c024c1afd165d3ce18ff157f87"
+    },
+    {
+      "path": "src/chembreak/utils.py",
+      "bytes": 2177,
+      "sha256": "9b18d34a923e2d8ebf90db41029f4d51214a2e3f500a2b824c6feb6382c1ece1"
+    },
+    {
+      "path": "tests/test_checkpoint.py",
+      "bytes": 1296,
+      "sha256": "5b0ad289552d2f478a4f3fe2eb20ba585600cfd604c17594f87e5810c4fb1628"
+    },
+    {
+      "path": "tests/test_config_and_dataset.py",
+      "bytes": 6841,
+      "sha256": "07ffaee5dec6f5345187a6247c26db28c04baf55051deb9c79925dd329876dfa"
+    },
+    {
+      "path": "tests/test_context_and_state.py",
+      "bytes": 8614,
+      "sha256": "d52df64be5d245bb77526de73ab51687f863c834ca113b9478112fc70473458d"
+    },
+    {
+      "path": "tests/test_error_handling.py",
+      "bytes": 3357,
+      "sha256": "e320d43488680b21fabe73d7c1371e5d8a9fb02710776874a9eab8c53a67c3b5"
+    },
+    {
+      "path": "tests/test_package_boundaries.py",
+      "bytes": 605,
+      "sha256": "7e1b8bc15e9a121527d76307d6c4398fca612f79c016512e731b5c90dea495f7"
+    },
+    {
+      "path": "tests/test_progressive_strategy.py",
+      "bytes": 15083,
+      "sha256": "6b0057f5b413717ff87fed6dc55d56b169a18ccfcc340cf7b737c8edf28c4dfa"
+    },
+    {
+      "path": "tests/test_reporting.py",
+      "bytes": 4802,
+      "sha256": "59edc32129381acde4fe43efc72109213a445886356a8257072491a5dba2ad79"
+    },
+    {
+      "path": "tests/test_scoring.py",
+      "bytes": 3822,
+      "sha256": "52f97ce4c19ba011d313393a8f3d9ba243d67ce8adc9d00030efdaf3de6107cd"
+    },
+    {
+      "path": "tests/test_v1_3_stage_one_contract.py",
+      "bytes": 3914,
+      "sha256": "a0cade72f5a960f406c4b3ef3e4255318c0de46816fb3d0de84be1df476c1e4f"
+    }
+  ]
+}
