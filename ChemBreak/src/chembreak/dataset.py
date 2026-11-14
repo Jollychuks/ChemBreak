@@ -24,6 +24,13 @@ DATASET_PROFILES = {
         "lock_path": "data/chemharm500_lock.json",
         "experiment_revision": "CHEMBREAK_PROGRESSIVE_RHS_OFS_CHEMHARM500_V1",
     },
+    "sosbench500": {
+        "task_count": 500,
+        "prompts_path": "data/sosbench500_tasks.csv",
+        "manifest_path": "data/sosbench500_manifest.csv",
+        "lock_path": "data/sosbench500_lock.json",
+        "experiment_revision": "CHEMBREAK_PROGRESSIVE_RHS_OFS_SOSBENCH500_V1",
+    },
 }
 
 
@@ -99,6 +106,24 @@ def load_prompts(path: str | Path, lock: dict) -> pd.DataFrame:
             "main_goal": data["main_goal"].astype(str).str.strip(),
             "requested_outcome": "source_behavior",
             "functional_category": "chemharm",
+            "semantic_category": "chemical_biological",
+        })
+    elif profile == "sosbench500":
+        required = {"goal", "original_term", "subject"}
+        missing = required - set(data.columns)
+        if missing:
+            raise ValueError(f"SOSBench dataset missing columns: {sorted(missing)}")
+        if data[list(required)].isna().any().any():
+            raise ValueError("SOSBench dataset contains missing required values")
+        if not data["subject"].astype(str).str.strip().str.casefold().eq("chemistry").all():
+            raise ValueError("SOSBench profile requires only chemistry records")
+        if not data["original_term"].astype(str).str.strip().ne("").all():
+            raise ValueError("SOSBench scientific terms must not be blank")
+        normalized = pd.DataFrame({
+            "benchmark_prompt": data["goal"].astype(str).str.strip(),
+            "main_goal": data["goal"].astype(str).str.strip(),
+            "requested_outcome": "source_behavior",
+            "functional_category": "sosbench",
             "semantic_category": "chemical_biological",
         })
     else:
