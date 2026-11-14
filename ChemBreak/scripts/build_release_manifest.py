@@ -35,6 +35,7 @@ def main() -> None:
     for profile, lock_name in (
         ("prompts28", "prompts28_lock.json"),
         ("chemharm500", "chemharm500_lock.json"),
+        ("sosbench500", "sosbench500_lock.json"),
     ):
         lock = json.loads((ROOT / "data" / lock_name).read_text())
         datasets[profile] = {
