@@ -33,6 +33,36 @@ class ConfigAndDatasetTests(unittest.TestCase):
         self.assertEqual(result["tasks"], 500)
         self.assertEqual(result["dataset_profile"], "chemharm500")
 
+    def test_locked_sosbench500_dataset(self):
+        result = verify_bundle(
+            ROOT / "data" / "sosbench500_tasks.csv",
+            ROOT / "data" / "sosbench500_manifest.csv",
+            ROOT / "data" / "sosbench500_lock.json",
+        )
+        self.assertEqual(result["tasks"], 500)
+        self.assertEqual(result["dataset_profile"], "sosbench500")
+        self.assertEqual(result["functional_categories"], ["sosbench"])
+
+    def test_sosbench500_source_goals_are_preserved(self):
+        import pandas as pd
+        from chembreak.dataset import selected_tasks
+
+        source = pd.read_csv(ROOT / "data" / "sosbench500_tasks.csv")
+        selected = selected_tasks(
+            ROOT / "data" / "sosbench500_tasks.csv",
+            ROOT / "data" / "sosbench500_manifest.csv",
+            ROOT / "data" / "sosbench500_lock.json",
+        )
+        self.assertEqual(len(selected), 500)
+        self.assertEqual(selected["assignment_id"].iloc[0], "SOSCHEM-0001")
+        self.assertEqual(selected["assignment_id"].iloc[-1], "SOSCHEM-0500")
+        self.assertEqual(
+            selected["benchmark_prompt"].tolist(), source["goal"].astype(str).str.strip().tolist()
+        )
+        self.assertEqual(
+            selected["goal_intent_anchor"].tolist(), source["goal"].astype(str).str.strip().tolist()
+        )
+
     def test_gpt4o_is_default_and_openai_alias_is_switchable(self):
         config = load_config(ROOT / "configs" / "config.gpt.yaml")
         self.assertEqual(config["roles"]["judge_llm"]["model"], "gpt-4o")
@@ -114,6 +144,52 @@ class ConfigAndDatasetTests(unittest.TestCase):
                 (ROOT / "data" / "chemharm500_tasks.xlsx").resolve(),
             )
             self.assertTrue(validate_config(config))
+
+    def test_runtime_dataset_switch_selects_sosbench500_for_both_judges(self):
+        for judge in ("gpt", "qwen"):
+            with self.subTest(judge=judge), tempfile.TemporaryDirectory() as directory:
+                runtime = Path(directory) / "runtime" / "sosbench500.yaml"
+                _runtime_config(
+                    ROOT / "configs" / f"config.{judge}.yaml",
+                    runtime, None, None, "sosbench500"
+                )
+                config = load_config(runtime)
+                self.assertEqual(config["run"]["dataset_profile"], "sosbench500")
+                self.assertEqual(config["experiment"]["task_count"], 500)
+                self.assertEqual(
+                    Path(config["run"]["prompts_path"]),
+                    (ROOT / "data" / "sosbench500_tasks.csv").resolve(),
+                )
+                self.assertTrue(validate_config(config))
+
+    def test_sosbench500_uses_existing_dry_run_architecture(self):
+        with tempfile.TemporaryDirectory() as directory:
+            temporary = Path(directory)
+            config = yaml.safe_load((ROOT / "configs" / "config.gpt.yaml").read_text())
+            config["run"].update({
+                "dataset_profile": "sosbench500",
+                "experiment_revision": "CHEMBREAK_PROGRESSIVE_RHS_OFS_SOSBENCH500_V1",
+                "run_id": "sosbench500_architecture_test",
+                "task_limit": 1,
+                "live_progress": False,
+                "prompts_path": str((ROOT / "data" / "sosbench500_tasks.csv").resolve()),
+                "manifest_path": str((ROOT / "data" / "sosbench500_manifest.csv").resolve()),
+                "lock_path": str((ROOT / "data" / "sosbench500_lock.json").resolve()),
+                "output_root": str(temporary / "runs"),
+                "artifact_root": str(temporary / "artifacts"),
+            })
+            config["experiment"]["task_count"] = 500
+            config_path = temporary / "config.yaml"
+            config_path.write_text(yaml.safe_dump(config, sort_keys=False))
+            runner = ChemBreakRunner(config_path, "ChemDFM")
+            try:
+                runner.run_all()
+                queries = runner.store.target_queries()
+                turns = runner.store.turns()
+            finally:
+                runner.close()
+            self.assertEqual(len(queries), 19)
+            self.assertEqual(len([row for row in turns if row["phase"] == "adaptive"]), 18)
 
     def test_chemharm500_uses_the_same_dry_run_architecture(self):
         with tempfile.TemporaryDirectory() as directory:
